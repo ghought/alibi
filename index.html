@@ -639,6 +639,100 @@
     transition: width 600ms ease;
   }
 
+  /* ===== ARCHIVE VIEW ===== */
+  .archive-view { padding-bottom: 40px; }
+
+  .archive-list { width: 100%; }
+
+  .archive-month {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .archive-month:first-child { margin-top: 0; }
+
+  .archive-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    background: var(--bg-card);
+    transition: background 150ms, border-color 150ms;
+  }
+  .archive-item:hover { background: #F5EFE6; border-color: var(--text-secondary); }
+
+  .archive-num {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    width: 36px;
+    flex-shrink: 0;
+  }
+
+  .archive-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .archive-setting {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+
+  .archive-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .archive-status {
+    flex-shrink: 0;
+    margin-left: 12px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .archive-status.completed { color: var(--accent); }
+  .archive-status.available { color: var(--text-secondary); }
+
+  .archive-back-btn {
+    display: none;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 16px;
+    align-self: flex-start;
+  }
+  .archive-back-btn:hover { color: var(--text-primary); }
+  .archive-back-btn.visible { display: flex; }
+
+  .archive-empty {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+    padding: 40px 0;
+    line-height: 1.6;
+  }
+
   /* ===== MODAL ===== */
   .modal-overlay {
     position: fixed;
@@ -806,11 +900,17 @@
   <!-- NAV -->
   <nav class="nav-tabs">
     <button class="nav-tab active" data-view="game">Play</button>
+    <button class="nav-tab" data-view="archive">Archive</button>
     <button class="nav-tab" data-view="stats">Stats</button>
   </nav>
 
   <!-- GAME VIEW -->
   <div class="view active" id="gameView" data-view="game">
+
+    <!-- Back to Archive (shown when playing an archive puzzle) -->
+    <button class="archive-back-btn" id="archiveBackBtn">
+      &larr; Back to Archive
+    </button>
 
     <!-- Case -->
     <div class="case-section">
@@ -850,6 +950,11 @@
       <div class="countdown-timer" id="countdown"></div>
     </div>
 
+  </div>
+
+  <!-- ARCHIVE VIEW -->
+  <div class="view archive-view" id="archiveView" data-view="archive">
+    <div class="archive-list" id="archiveList"></div>
   </div>
 
   <!-- STATS VIEW -->
@@ -938,6 +1043,7 @@
   let guessSequence = [];
   let selectedSuspect = null;
   let revealedBonusCount = 0;
+  let isArchivePuzzle = false;
 
   /* ===== INIT ===== */
   async function init() {
@@ -960,6 +1066,7 @@
     setupNav();
     setupModal();
     setupAuth();
+    setupArchive();
     render();
     startCountdown();
   }
@@ -1150,6 +1257,14 @@
     document.querySelectorAll('.nav-tab').forEach(t => t.classList.toggle('active', t.dataset.view === view));
     document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.dataset.view === view));
     if (view === 'stats') renderStats();
+    if (view === 'archive') {
+      renderArchive();
+      isArchivePuzzle = false;
+      $('archiveBackBtn').classList.remove('visible');
+    }
+    if (view === 'game' && isArchivePuzzle) {
+      $('archiveBackBtn').classList.add('visible');
+    }
   }
 
   /* ===== MODAL ===== */
@@ -1430,6 +1545,97 @@
         </div>`;
       }).join('')}
     `;
+  }
+
+  /* ===== ARCHIVE ===== */
+  function renderArchive() {
+    const stats = loadStats();
+    const today = getTodayStr();
+    const container = $('archiveList');
+
+    let html = '';
+    let currentMonth = '';
+
+    const sorted = [...PUZZLES].sort((a, b) => b.date.localeCompare(a.date));
+    const available = sorted.filter(pz => pz.date <= today);
+
+    for (const pz of available) {
+      const d = new Date(pz.date + 'T00:00:00');
+      const monthKey = d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+      if (monthKey !== currentMonth) {
+        currentMonth = monthKey;
+        html += `<div class="archive-month">${monthKey}</div>`;
+      }
+
+      const pid = String(pz.id);
+      const completed = stats.completedPuzzles[pid];
+      const num = [...PUZZLES].sort((a, b) => a.date.localeCompare(b.date)).findIndex(p => p.id === pz.id) + 1;
+      const dateStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+
+      let statusHTML = '';
+      if (completed) {
+        statusHTML = `<div class="archive-status completed">\u2713 ${completed.score} att.</div>`;
+      } else {
+        statusHTML = `<div class="archive-status available">Play \u2192</div>`;
+      }
+
+      html += `
+        <div class="archive-item" data-puzzle-id="${pz.id}">
+          <div class="archive-num">#${num}</div>
+          <div class="archive-info">
+            <div class="archive-setting">${pz.setting || ''} \u00b7 ${dateStr}</div>
+            <div class="archive-title">${pz.title}</div>
+          </div>
+          ${statusHTML}
+        </div>
+      `;
+    }
+
+    if (available.length === 0) {
+      html = '<div class="archive-empty">No past puzzles yet.<br>Come back after today\u2019s puzzle!</div>';
+    }
+
+    container.innerHTML = html;
+
+    container.querySelectorAll('.archive-item').forEach(el => {
+      el.addEventListener('click', () => {
+        const id = el.dataset.puzzleId;
+        const pz = PUZZLES.find(p => p.id === id);
+        if (pz) {
+          loadPuzzle(pz, true);
+          switchView('game');
+        }
+      });
+    });
+  }
+
+  function loadPuzzle(puzzleObj, fromArchive) {
+    puzzle = puzzleObj;
+    isArchivePuzzle = !!fromArchive;
+
+    // Reset game state for this puzzle
+    selectedSuspect = null;
+    loadState();
+
+    if (isArchivePuzzle) {
+      $('archiveBackBtn').classList.add('visible');
+    } else {
+      $('archiveBackBtn').classList.remove('visible');
+    }
+
+    render();
+  }
+
+  function setupArchive() {
+    $('archiveBackBtn').addEventListener('click', () => {
+      // Return to today's puzzle, then switch to archive view
+      const todayPuzzle = findTodayPuzzle();
+      if (todayPuzzle) {
+        loadPuzzle(todayPuzzle, false);
+      }
+      switchView('archive');
+    });
   }
 
   /* ===== COUNTDOWN ===== */
