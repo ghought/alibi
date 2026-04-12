@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Alibi — A Daily Mystery Puzzle</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="description" content="Five suspects. Three clues. One liar. A new mystery every day.">
+<meta name="theme-color" content="#2C2420">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Alibi — A Daily Mystery Puzzle">
+<meta property="og:description" content="Five suspects. Three clues. One liar. A new mystery every day.">
+<meta property="og:url" content="https://alibi.garretthoughton.com/">
+<meta property="og:image" content="https://alibi.garretthoughton.com/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alibi — A Daily Mystery Puzzle">
+<meta name="twitter:description" content="Five suspects. Three clues. One liar. A new mystery every day.">
+<meta name="twitter:image" content="https://alibi.garretthoughton.com/og-image.png">
+
+<!-- Firebase SDK (optional — leave FIREBASE_CONFIG empty to use localStorage only) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #FDF8F0;
+    --bg-card: #FFFDF9;
+    --text-primary: #2C2420;
+    --text-secondary: #7A6E64;
+    --border: #E0D5C8;
+    --accent: #B8432F;
+    --accent-light: #F2DDD8;
+    --cleared: #C8C0B8;
+    --cleared-bg: #F0ECE6;
+    --correct: #B8432F;
+    --clue-bg: #F5EFE6;
+    --clue-new: #E8D8A8;
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-serif: Georgia, 'Times New Roman', serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text-primary);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    -webkit-user-select: none;
+    user-select: none;
+    overscroll-behavior: none;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 540px;
+    padding: 0 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0 0;
+    margin-bottom: 0;
+    position: relative;
+  }
+
+  .wordmark {
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+  }
+
+  .puzzle-meta {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  .help-btn {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .help-btn:hover { border-color: var(--text-secondary); }
+
+  /* ===== AUTH (inside header) ===== */
+  .auth-area {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .auth-btn {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: border-color 150ms;
+  }
+  .auth-btn:hover { border-color: var(--text-secondary); }
+
+  .auth-user {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .auth-avatar {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .auth-signout {
+    font-size: 10px;
+    color: #AAA;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  .auth-signout:hover { color: var(--text-secondary); }
+
+  /* ===== NAV TABS ===== */
+  .nav-tabs {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+    margin-top: 12px;
+  }
+
+  .nav-tab {
+    flex: 1;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--text-secondary);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: color 150ms, border-color 150ms;
+  }
+
+  .nav-tab:hover { color: var(--text-primary); }
+  .nav-tab.active {
+    color: var(--text-primary);
+    border-bottom-color: var(--text-primary);
+  }
+
+  /* ===== VIEWS ===== */
+  .view { display: none; width: 100%; }
+  .view.active { display: flex; flex-direction: column; align-items: center; }
+
+  /* ===== CASE DESCRIPTION ===== */
+  .case-section {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .case-title {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+  }
+
+  .case-description {
+    font-family: var(--font-serif);
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    padding: 0 4px;
+  }
+
+  /* ===== CLUE PANEL ===== */
+  .clue-panel {
+    width: 100%;
+    background: var(--clue-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 22px;
+  }
+
+  .clue-panel-header {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .clue-panel-header svg {
+    width: 14px;
+    height: 14px;
+    fill: var(--text-secondary);
+  }
+
+  .clue-item {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-primary);
+    padding: 6px 0;
+    display: flex;
+    gap: 8px;
+    opacity: 1;
+    transition: opacity 400ms ease;
+  }
+
+  .clue-item + .clue-item {
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .clue-number {
+    font-weight: 700;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    font-size: 13px;
+    min-width: 18px;
+  }
+
+  .clue-text {
+    flex: 1;
+  }
+
+  .clue-item.bonus {
+    background: linear-gradient(90deg, rgba(232,216,168,0.2) 0%, transparent 100%);
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin: 2px -8px;
+  }
+
+  .clue-item.bonus .clue-number {
+    color: var(--accent);
+  }
+
+  .clue-new-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-light);
+    border-radius: 3px;
+    padding: 1px 5px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  @keyframes clueFadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .clue-item.fade-in {
+    animation: clueFadeIn 500ms ease forwards;
+  }
+
+  /* ===== MOBILE CLUE ACCORDION ===== */
+  .clue-toggle-mobile {
+    display: none;
+  }
+
+  /* ===== SUSPECTS GRID ===== */
+  .suspects-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .suspect-card {
+    width: 100%;
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: border-color 200ms, background-color 200ms, transform 100ms, opacity 300ms;
+    position: relative;
+  }
+
+  .suspect-card:hover:not(.cleared):not(.guilty) {
+    border-color: var(--text-secondary);
+  }
+
+  .suspect-card.selected {
+    border-color: var(--accent);
+    border-width: 2px;
+    background: #FFF8F6;
+    padding: 13px 15px; /* compensate for thicker border */
+  }
+
+  .suspect-card.cleared {
+    background: var(--cleared-bg);
+    border-color: var(--cleared);
+    cursor: default;
+    opacity: 0.6;
+  }
+
+  .suspect-card.guilty {
+    border-color: var(--accent);
+    border-width: 2.5px;
+    background: #FFF0ED;
+    cursor: default;
+  }
+
+  .suspect-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .suspect-name {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text-primary);
+  }
+
+  .suspect-role {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    background: rgba(0,0,0,0.04);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .suspect-alibi {
+    font-family: var(--font-serif);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-primary);
+  }
+
+  .suspect-card.cleared .suspect-name,
+  .suspect-card.cleared .suspect-alibi {
+    text-decoration: line-through;
+    text-decoration-color: var(--cleared);
+  }
+
+  .suspect-badge {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .suspect-badge.cleared-badge {
+    color: var(--cleared);
+    background: transparent;
+    border: 1px solid var(--cleared);
+  }
+
+  .suspect-badge.guilty-badge {
+    color: #FFF;
+    background: var(--accent);
+  }
+
+  @keyframes stampIn {
+    0% { transform: scale(2) rotate(-15deg); opacity: 0; }
+    60% { transform: scale(0.95) rotate(2deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  .suspect-badge.guilty-badge.animate {
+    animation: stampIn 400ms ease forwards;
+  }
+
+  @keyframes cardClear {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.97); }
+    100% { transform: scale(1); }
+  }
+
+  .suspect-card.clear-anim {
+    animation: cardClear 300ms ease;
+  }
+
+  /* ===== ACTION BAR ===== */
+  .action-bar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .attempt-counter {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-align: center;
+    min-height: 20px;
+  }
+
+  .accuse-btn {
+    width: 100%;
+    max-width: 320px;
+    height: 48px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: background-color 200ms, opacity 200ms, transform 100ms;
+    color: #FFF;
+    background: var(--accent);
+  }
+
+  .accuse-btn:disabled {
+    background: var(--cleared);
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  .accuse-btn:not(:disabled):hover {
+    opacity: 0.9;
+  }
+
+  .accuse-btn:not(:disabled):active {
+    transform: scale(0.98);
+  }
+
+  /* ===== SOLVED STATE ===== */
+  .solved-section {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  .solved-section.visible {
+    display: flex;
+  }
+
+  .solved-badge {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .solved-label {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--text-primary);
+  }
+
+  .solved-sublabel {
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-align: center;
+  }
+
+  .reveal-box {
+    width: 100%;
+    background: var(--clue-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+
+  .reveal-header {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .reveal-text {
+    font-family: var(--font-serif);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-primary);
+  }
+
+  .share-btn {
+    width: 100%;
+    max-width: 320px;
+    height: 48px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: opacity 200ms, transform 100ms;
+    color: #FFF;
+    background: var(--text-primary);
+  }
+
+  .share-btn:hover { opacity: 0.9; }
+  .share-btn:active { transform: scale(0.98); }
+
+  .countdown-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-align: center;
+  }
+
+  .countdown-timer {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--text-primary);
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ===== STATS VIEW ===== */
+  .stats-section {
+    width: 100%;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  .stat-box-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-box-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .dist-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.03em;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .dist-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .dist-label {
+    width: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text-secondary);
+  }
+
+  .dist-bar-wrap {
+    flex: 1;
+    height: 22px;
+    background: var(--clue-bg);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .dist-bar {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 4px;
+    min-width: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #FFF;
+    transition: width 600ms ease;
+  }
+
+  /* ===== MODAL ===== */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 500;
+    padding: 20px;
+  }
+
+  .modal-overlay.visible {
+    display: flex;
+  }
+
+  .modal {
+    background: var(--bg);
+    border-radius: 14px;
+    max-width: 400px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 28px 24px;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: none;
+    font-size: 20px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .modal-close:hover { background: rgba(0,0,0,0.05); }
+
+  .modal h2 {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+  }
+
+  .modal p, .modal li {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+  }
+
+  .modal ul {
+    padding-left: 20px;
+    margin-bottom: 12px;
+  }
+
+  .modal .emoji-key {
+    font-size: 15px;
+  }
+
+  /* ===== TOAST ===== */
+  .copied-toast {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--text-primary);
+    color: #FFF;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 300ms;
+    pointer-events: none;
+    z-index: 600;
+  }
+
+  .copied-toast.visible {
+    opacity: 1;
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    width: 100%;
+    text-align: center;
+    padding: 24px 0 16px;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+  }
+
+  .site-footer a {
+    color: var(--text-secondary);
+    font-size: 12px;
+    text-decoration: none;
+  }
+  .site-footer a:hover { text-decoration: underline; }
+
+  .game-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+
+  .game-links a {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 4px 0;
+    border-bottom: 1.5px solid transparent;
+    transition: color 150ms, border-color 150ms;
+  }
+
+  .game-links a:hover {
+    color: var(--text-primary);
+    border-bottom-color: var(--text-primary);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 480px) {
+    .container { padding: 0 16px 32px; }
+    .case-title { font-size: 20px; }
+    .suspect-card { padding: 12px 14px; }
+    .suspect-card.selected { padding: 11px 13px; }
+  }
+
+  @media (min-width: 769px) {
+    .container { max-width: 640px; }
+    .suspects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .container { max-width: 780px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="auth-area" id="authArea"></div>
+    <div class="wordmark">ALIBI</div>
+    <div class="puzzle-meta" id="puzzleMeta"></div>
+    <button class="help-btn" id="helpBtn" aria-label="How to play">?</button>
+  </header>
+
+  <!-- NAV -->
+  <nav class="nav-tabs">
+    <button class="nav-tab active" data-view="game">Play</button>
+    <button class="nav-tab" data-view="stats">Stats</button>
+  </nav>
+
+  <!-- GAME VIEW -->
+  <div class="view active" id="gameView" data-view="game">
+
+    <!-- Case -->
+    <div class="case-section">
+      <div class="case-title" id="caseTitle"></div>
+      <div class="case-description" id="caseDescription"></div>
+    </div>
+
+    <!-- Clues -->
+    <div class="clue-panel" id="cluePanel">
+      <div class="clue-panel-header">
+        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        EVIDENCE
+      </div>
+      <div id="clueList"></div>
+    </div>
+
+    <!-- Suspects -->
+    <div class="suspects-grid" id="suspectsGrid"></div>
+
+    <!-- Action bar -->
+    <div class="action-bar" id="actionBar">
+      <div class="attempt-counter" id="attemptCounter"></div>
+      <button class="accuse-btn" id="accuseBtn" disabled>Select a suspect</button>
+    </div>
+
+    <!-- Solved state -->
+    <div class="solved-section" id="solvedSection">
+      <div class="solved-badge" id="solvedBadge"></div>
+      <div class="solved-label" id="solvedLabel"></div>
+      <div class="solved-sublabel" id="solvedSublabel"></div>
+      <div class="reveal-box">
+        <div class="reveal-header">HOW IT HAPPENED</div>
+        <div class="reveal-text" id="revealText"></div>
+      </div>
+      <button class="share-btn" id="shareBtn">Share Result</button>
+      <div class="countdown-text">Next mystery in</div>
+      <div class="countdown-timer" id="countdown"></div>
+    </div>
+
+  </div>
+
+  <!-- STATS VIEW -->
+  <div class="view" id="statsView" data-view="stats">
+    <div class="stats-section" id="statsSection"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="site-footer">
+    <div class="game-links">
+      <a href="https://rankitgame.com">Rank It</a>
+      <a href="https://threadgame.co">Thread</a>
+    </div>
+    <a href="https://garretthoughton.com/">Made by Garrett</a>
+  </div>
+
+</div>
+
+<!-- HOW TO PLAY MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <h2>How to Play</h2>
+    <p>Every day, a small crime has been committed. Five suspects each have an alibi — but <strong>one of them is lying</strong>.</p>
+    <p>Read the clues, cross-reference the alibis, and identify the liar.</p>
+    <ul>
+      <li>Three clues are revealed at the start.</li>
+      <li>If you guess wrong, the suspect is cleared and a <strong>bonus clue</strong> is revealed.</li>
+      <li>Your score is the number of attempts it takes. Lower is better.</li>
+    </ul>
+    <p><strong>Scoring:</strong></p>
+    <ul>
+      <li><span class="emoji-key">1 attempt</span> — Case Closed (perfect!)</li>
+      <li><span class="emoji-key">2 attempts</span> — Sharp Eye</li>
+      <li><span class="emoji-key">3 attempts</span> — Solid Work</li>
+      <li><span class="emoji-key">4 attempts</span> — Dogged Detective</li>
+      <li><span class="emoji-key">5 attempts</span> — Process of Elimination</li>
+    </ul>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="copied-toast" id="copiedToast">Copied to clipboard!</div>
+
+<script>
+(function () {
+  'use strict';
+
+  const $ = id => document.getElementById(id);
+
+  /* ===== FIREBASE CONFIG ===== */
+  const FIREBASE_CONFIG = {
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
+  };
+
+  const FIREBASE_ENABLED = !!(FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.projectId);
+  let db, auth, currentUser = null;
+
+  if (FIREBASE_ENABLED) {
+    firebase.initializeApp(FIREBASE_CONFIG);
+    auth = firebase.auth();
+    db = firebase.firestore();
+  }
+
+  /* ===== CONSTANTS ===== */
+  const BADGES = {
+    1: { emoji: '\u{1F947}', label: 'Case Closed' },
+    2: { emoji: '\u{1F948}', label: 'Sharp Eye' },
+    3: { emoji: '\u{1F949}', label: 'Solid Work' },
+    4: { emoji: '\u{1F50D}', label: 'Dogged Detective' },
+    5: { emoji: '\u{1F4D3}', label: 'Process of Elimination' }
+  };
+
+  const STORAGE_STATS = 'alibi_stats';
+
+  /* ===== STATE ===== */
+  let PUZZLES = [];
+  let puzzle = null;
+  let gameState = 'LOADING'; // LOADING | READING | ACCUSING | SOLVED
+  let attempts = 0;
+  let guessSequence = [];
+  let selectedSuspect = null;
+  let revealedBonusCount = 0;
+
+  /* ===== INIT ===== */
+  async function init() {
+    try {
+      const resp = await fetch('puzzles.json');
+      PUZZLES = await resp.json();
+    } catch (e) {
+      console.error('Failed to load puzzles:', e);
+      PUZZLES = [];
+    }
+
+    puzzle = findTodayPuzzle();
+    if (!puzzle) {
+      $('caseTitle').textContent = 'No puzzle available';
+      $('caseDescription').textContent = 'Check back tomorrow!';
+      return;
+    }
+
+    loadState();
+    setupNav();
+    setupModal();
+    setupAuth();
+    render();
+    startCountdown();
+  }
+
+  /* ===== PUZZLE SELECTION ===== */
+  function getTodayStr() {
+    const d = new Date();
+    return d.getFullYear() + '-' +
+      String(d.getMonth() + 1).padStart(2, '0') + '-' +
+      String(d.getDate()).padStart(2, '0');
+  }
+
+  function findTodayPuzzle() {
+    const today = getTodayStr();
+    let p = PUZZLES.find(p => p.date === today);
+    if (p) return p;
+    const past = PUZZLES.filter(p => p.date <= today).sort((a, b) => b.date.localeCompare(a.date));
+    return past[0] || PUZZLES[0] || null;
+  }
+
+  function getPuzzleNumber() {
+    if (!puzzle) return 0;
+    const sorted = [...PUZZLES].sort((a, b) => a.date.localeCompare(b.date));
+    return sorted.findIndex(p => p.id === puzzle.id) + 1;
+  }
+
+  /* ===== LOCAL STORAGE ===== */
+  function stateKey() { return 'alibi_state_' + puzzle.id; }
+
+  function saveState() {
+    const data = { puzzleId: puzzle.id, attempts, guessSequence, gameState, revealedBonusCount };
+    localStorage.setItem(stateKey(), JSON.stringify(data));
+  }
+
+  function loadState() {
+    try {
+      const raw = localStorage.getItem(stateKey());
+      if (!raw) { gameState = 'READING'; return; }
+      const data = JSON.parse(raw);
+      if (data.puzzleId !== puzzle.id) { gameState = 'READING'; return; }
+      attempts = data.attempts || 0;
+      guessSequence = data.guessSequence || [];
+      revealedBonusCount = data.revealedBonusCount || 0;
+      gameState = data.gameState || 'READING';
+    } catch {
+      gameState = 'READING';
+    }
+  }
+
+  function loadStats() {
+    try {
+      const raw = localStorage.getItem(STORAGE_STATS);
+      if (!raw) return defaultStats();
+      return JSON.parse(raw);
+    } catch {
+      return defaultStats();
+    }
+  }
+
+  function saveStats(stats) {
+    localStorage.setItem(STORAGE_STATS, JSON.stringify(stats));
+  }
+
+  function defaultStats() {
+    return {
+      played: 0,
+      distribution: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
+      streak: 0,
+      bestStreak: 0,
+      lastDate: null,
+      completedPuzzles: {}
+    };
+  }
+
+  function recordCompletion(score) {
+    const stats = loadStats();
+    if (stats.completedPuzzles[puzzle.id]) return; // already recorded
+
+    stats.played++;
+    stats.distribution[score] = (stats.distribution[score] || 0) + 1;
+    stats.completedPuzzles[puzzle.id] = { score, date: getTodayStr() };
+
+    // Streak
+    const today = getTodayStr();
+    if (stats.lastDate) {
+      const last = new Date(stats.lastDate + 'T00:00:00');
+      const now = new Date(today + 'T00:00:00');
+      const diff = Math.round((now - last) / 86400000);
+      if (diff === 1) {
+        stats.streak++;
+      } else if (diff > 1) {
+        stats.streak = 1;
+      }
+    } else {
+      stats.streak = 1;
+    }
+    stats.lastDate = today;
+    if (stats.streak > stats.bestStreak) stats.bestStreak = stats.streak;
+
+    saveStats(stats);
+    if (FIREBASE_ENABLED && currentUser) pushToCloud(stats);
+  }
+
+  /* ===== FIREBASE SYNC ===== */
+  async function pushToCloud(stats) {
+    if (!db || !currentUser) return;
+    try {
+      await db.collection('users').doc(currentUser.uid).set({ alibi_stats: stats }, { merge: true });
+    } catch (e) { console.warn('Cloud push failed:', e); }
+  }
+
+  async function syncFromCloud() {
+    if (!db || !currentUser) return;
+    try {
+      const doc = await db.collection('users').doc(currentUser.uid).get();
+      if (!doc.exists || !doc.data().alibi_stats) return;
+      const cloud = doc.data().alibi_stats;
+      const local = loadStats();
+      const merged = mergeStats(local, cloud);
+      saveStats(merged);
+    } catch (e) { console.warn('Cloud sync failed:', e); }
+  }
+
+  function mergeStats(a, b) {
+    const merged = defaultStats();
+    const allPuzzles = { ...a.completedPuzzles, ...b.completedPuzzles };
+    merged.completedPuzzles = allPuzzles;
+    merged.played = Object.keys(allPuzzles).length;
+
+    for (const key in allPuzzles) {
+      const score = allPuzzles[key].score;
+      merged.distribution[score] = (merged.distribution[score] || 0) + 1;
+    }
+
+    // Recalc streaks
+    const dates = Object.values(allPuzzles).map(p => p.date).sort();
+    if (dates.length > 0) {
+      merged.lastDate = dates[dates.length - 1];
+      let streak = 1, best = 1;
+      for (let i = 1; i < dates.length; i++) {
+        const prev = new Date(dates[i - 1] + 'T00:00:00');
+        const curr = new Date(dates[i] + 'T00:00:00');
+        const diff = Math.round((curr - prev) / 86400000);
+        if (diff === 1) { streak++; if (streak > best) best = streak; }
+        else if (diff > 1) { streak = 1; }
+      }
+      merged.streak = streak;
+      merged.bestStreak = best;
+    }
+
+    return merged;
+  }
+
+  /* ===== AUTH ===== */
+  function setupAuth() {
+    if (!FIREBASE_ENABLED) {
+      $('authArea').innerHTML = '';
+      return;
+    }
+    auth.onAuthStateChanged(user => {
+      currentUser = user;
+      renderAuth();
+      if (user) syncFromCloud();
+    });
+  }
+
+  function renderAuth() {
+    const area = $('authArea');
+    if (!FIREBASE_ENABLED) { area.innerHTML = ''; return; }
+    if (currentUser) {
+      const img = currentUser.photoURL ? `<img class="auth-avatar" src="${currentUser.photoURL}" alt="">` : '';
+      area.innerHTML = `<div class="auth-user">${img}<button class="auth-signout" id="signOutBtn">Sign out</button></div>`;
+      $('signOutBtn').onclick = () => auth.signOut();
+    } else {
+      area.innerHTML = `<button class="auth-btn" id="signInBtn">Sign in</button>`;
+      $('signInBtn').onclick = () => auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    }
+  }
+
+  /* ===== NAV ===== */
+  function setupNav() {
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+      tab.addEventListener('click', () => switchView(tab.dataset.view));
+    });
+  }
+
+  function switchView(view) {
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.toggle('active', t.dataset.view === view));
+    document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.dataset.view === view));
+    if (view === 'stats') renderStats();
+  }
+
+  /* ===== MODAL ===== */
+  function setupModal() {
+    $('helpBtn').addEventListener('click', () => $('modalOverlay').classList.add('visible'));
+    $('modalClose').addEventListener('click', () => $('modalOverlay').classList.remove('visible'));
+    $('modalOverlay').addEventListener('click', e => {
+      if (e.target === $('modalOverlay')) $('modalOverlay').classList.remove('visible');
+    });
+
+    // Show on first visit
+    if (!localStorage.getItem('alibi_visited')) {
+      $('modalOverlay').classList.add('visible');
+      localStorage.setItem('alibi_visited', '1');
+    }
+  }
+
+  /* ===== RENDER ===== */
+  function render() {
+    if (!puzzle) return;
+
+    // Meta
+    const num = getPuzzleNumber();
+    const dateObj = new Date(puzzle.date + 'T00:00:00');
+    const dateStr = dateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+    $('puzzleMeta').textContent = `#${num} \u2022 ${dateStr}`;
+
+    // Case
+    $('caseTitle').textContent = puzzle.title;
+    $('caseDescription').textContent = puzzle.case;
+
+    renderClues();
+    renderSuspects();
+    renderActionBar();
+
+    if (gameState === 'SOLVED') {
+      renderSolvedState();
+    }
+  }
+
+  function renderClues() {
+    const list = $('clueList');
+    list.innerHTML = '';
+
+    // Starter clues
+    puzzle.clues.starter.forEach((clue, i) => {
+      const div = document.createElement('div');
+      div.className = 'clue-item';
+      div.innerHTML = `<span class="clue-number">${i + 1}.</span><span class="clue-text">${clue}</span>`;
+      list.appendChild(div);
+    });
+
+    // Bonus clues
+    for (let i = 0; i < revealedBonusCount && i < puzzle.clues.bonus.length; i++) {
+      const div = document.createElement('div');
+      div.className = 'clue-item bonus';
+      const isNew = (i === revealedBonusCount - 1 && gameState !== 'SOLVED');
+      div.innerHTML = `<span class="clue-number">${puzzle.clues.starter.length + i + 1}.</span><span class="clue-text">${puzzle.clues.bonus[i]}${isNew ? ' <span class="clue-new-tag">NEW</span>' : ''}</span>`;
+      if (isNew) div.classList.add('fade-in');
+      list.appendChild(div);
+    }
+  }
+
+  function renderSuspects() {
+    const grid = $('suspectsGrid');
+    grid.innerHTML = '';
+
+    puzzle.suspects.forEach(suspect => {
+      const card = document.createElement('div');
+      card.className = 'suspect-card';
+      card.dataset.id = suspect.id;
+
+      const isCleared = guessSequence.includes(suspect.id) && suspect.id !== puzzle.culprit_id;
+      const isGuilty = gameState === 'SOLVED' && suspect.id === puzzle.culprit_id;
+      const isSelected = selectedSuspect === suspect.id;
+
+      if (isCleared) card.classList.add('cleared');
+      if (isGuilty) card.classList.add('guilty');
+      if (isSelected && !isCleared && !isGuilty) card.classList.add('selected');
+
+      let badge = '';
+      if (isCleared) badge = '<span class="suspect-badge cleared-badge">Cleared</span>';
+      if (isGuilty) badge = '<span class="suspect-badge guilty-badge" id="guiltyBadge">Guilty</span>';
+
+      card.innerHTML = `
+        ${badge}
+        <div class="suspect-header">
+          <span class="suspect-name">${suspect.name}</span>
+          <span class="suspect-role">${suspect.role}</span>
+        </div>
+        <div class="suspect-alibi">${suspect.alibi}</div>
+      `;
+
+      if (!isCleared && !isGuilty && gameState !== 'SOLVED') {
+        card.addEventListener('click', () => selectSuspect(suspect.id));
+      }
+
+      grid.appendChild(card);
+    });
+  }
+
+  function renderActionBar() {
+    const bar = $('actionBar');
+    const btn = $('accuseBtn');
+    const counter = $('attemptCounter');
+
+    if (gameState === 'SOLVED') {
+      bar.style.display = 'none';
+      return;
+    }
+
+    bar.style.display = '';
+    counter.textContent = attempts > 0 ? `Attempt ${attempts} of 5` : '';
+
+    if (selectedSuspect) {
+      const suspect = puzzle.suspects.find(s => s.id === selectedSuspect);
+      btn.textContent = `Accuse ${suspect.name}`;
+      btn.disabled = false;
+    } else {
+      btn.textContent = 'Select a suspect';
+      btn.disabled = true;
+    }
+
+    btn.onclick = () => submitAccusation();
+  }
+
+  function renderSolvedState() {
+    const section = $('solvedSection');
+    section.classList.add('visible');
+
+    const score = attempts;
+    const badge = BADGES[score] || BADGES[5];
+
+    $('solvedBadge').textContent = badge.emoji;
+    $('solvedLabel').textContent = badge.label;
+    $('solvedSublabel').textContent = `Solved in ${score} attempt${score !== 1 ? 's' : ''}`;
+    $('revealText').textContent = puzzle.reveal;
+
+    $('shareBtn').onclick = shareResult;
+
+    // Animate guilty badge
+    const guiltyBadge = document.getElementById('guiltyBadge');
+    if (guiltyBadge) {
+      requestAnimationFrame(() => guiltyBadge.classList.add('animate'));
+    }
+  }
+
+  /* ===== GAME LOGIC ===== */
+  function selectSuspect(id) {
+    if (gameState === 'SOLVED') return;
+    if (guessSequence.includes(id)) return;
+    selectedSuspect = (selectedSuspect === id) ? null : id;
+    gameState = selectedSuspect ? 'ACCUSING' : 'READING';
+    renderSuspects();
+    renderActionBar();
+  }
+
+  async function submitAccusation() {
+    if (!selectedSuspect || gameState === 'SOLVED') return;
+
+    const guessId = selectedSuspect;
+    attempts++;
+    guessSequence.push(guessId);
+    selectedSuspect = null;
+
+    if (guessId === puzzle.culprit_id) {
+      // Correct!
+      gameState = 'SOLVED';
+      saveState();
+      recordCompletion(attempts);
+      render();
+    } else {
+      // Wrong
+      if (revealedBonusCount < puzzle.clues.bonus.length) {
+        revealedBonusCount++;
+      }
+      gameState = 'READING';
+      saveState();
+
+      // Check if only one suspect remains
+      const remaining = puzzle.suspects.filter(s => !guessSequence.includes(s.id));
+      if (remaining.length === 1) {
+        // Auto-solve: the last suspect must be the culprit
+        attempts++;
+        guessSequence.push(remaining[0].id);
+        gameState = 'SOLVED';
+        saveState();
+        recordCompletion(attempts);
+      }
+
+      render();
+
+      // Animate the cleared card
+      const clearedCard = document.querySelector(`.suspect-card[data-id="${guessId}"]`);
+      if (clearedCard) clearedCard.classList.add('clear-anim');
+    }
+  }
+
+  /* ===== SHARE ===== */
+  function shareResult() {
+    if (gameState !== 'SOLVED') return;
+
+    const num = getPuzzleNumber();
+    const dateObj = new Date(puzzle.date + 'T00:00:00');
+    const dateStr = dateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+
+    const pattern = guessSequence.map(id =>
+      id === puzzle.culprit_id ? '\u2705' : '\u274C'
+    ).join('');
+
+    const badge = BADGES[attempts] || BADGES[5];
+    const text = `Alibi #${num} \u2014 ${dateStr}\n${badge.label} ${pattern}\n\nAttempts: ${attempts}/5\n\u{1F575}\uFE0F #Alibi\nalibi.garretthoughton.com`;
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(showToast).catch(fallbackCopy);
+    } else {
+      fallbackCopy();
+    }
+
+    function fallbackCopy() {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast();
+    }
+  }
+
+  function showToast() {
+    const toast = $('copiedToast');
+    toast.classList.add('visible');
+    setTimeout(() => toast.classList.remove('visible'), 2000);
+  }
+
+  /* ===== STATS ===== */
+  function renderStats() {
+    const stats = loadStats();
+    const section = $('statsSection');
+
+    const avgAttempts = stats.played > 0
+      ? (Object.entries(stats.distribution).reduce((sum, [k, v]) => sum + Number(k) * v, 0) / stats.played).toFixed(1)
+      : '-';
+
+    const maxDist = Math.max(...Object.values(stats.distribution), 1);
+
+    section.innerHTML = `
+      <div class="stats-grid">
+        <div>
+          <div class="stat-box-value">${stats.played}</div>
+          <div class="stat-box-label">Played</div>
+        </div>
+        <div>
+          <div class="stat-box-value">${avgAttempts}</div>
+          <div class="stat-box-label">Avg Attempts</div>
+        </div>
+        <div>
+          <div class="stat-box-value">${stats.streak}</div>
+          <div class="stat-box-label">Streak</div>
+        </div>
+        <div>
+          <div class="stat-box-value">${stats.bestStreak}</div>
+          <div class="stat-box-label">Best Streak</div>
+        </div>
+      </div>
+      <div class="dist-title">Attempt Distribution</div>
+      ${[1, 2, 3, 4, 5].map(n => {
+        const count = stats.distribution[n] || 0;
+        const pct = stats.played > 0 ? Math.max((count / maxDist) * 100, count > 0 ? 8 : 0) : 0;
+        return `<div class="dist-row">
+          <div class="dist-label">${n}</div>
+          <div class="dist-bar-wrap">
+            <div class="dist-bar" style="width: ${pct}%">${count}</div>
+          </div>
+        </div>`;
+      }).join('')}
+    `;
+  }
+
+  /* ===== COUNTDOWN ===== */
+  function startCountdown() {
+    function tick() {
+      const now = new Date();
+      const tomorrow = new Date(now);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      tomorrow.setHours(0, 0, 0, 0);
+      const diff = tomorrow - now;
+      const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
+      const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+      const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+      const el = $('countdown');
+      if (el) el.textContent = `${h}:${m}:${s}`;
+    }
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  /* ===== BOOT ===== */
+  init();
+
+})();
+</script>
+
+</body>
+</html>
