@@ -387,6 +387,39 @@
     text-decoration-color: var(--cleared);
   }
 
+  .suspect-exoneration {
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: rgba(184, 67, 47, 0.06);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    font-family: var(--font-serif);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-primary);
+    opacity: 1;
+  }
+
+  .suspect-exoneration-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  @keyframes exonerationFadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .suspect-exoneration.fade-in {
+    animation: exonerationFadeIn 400ms ease forwards;
+  }
+
   .suspect-badge {
     position: absolute;
     top: 12px;
@@ -1042,7 +1075,7 @@
   let attempts = 0;
   let guessSequence = [];
   let selectedSuspect = null;
-  let revealedBonusCount = 0;
+  let lastGuessedId = null; // for fade-in animation on new exoneration
   let isArchivePuzzle = false;
 
   /* ===== INIT ===== */
@@ -1097,11 +1130,15 @@
   function stateKey() { return 'alibi_state_' + puzzle.id; }
 
   function saveState() {
-    const data = { puzzleId: puzzle.id, attempts, guessSequence, gameState, revealedBonusCount };
+    const data = { puzzleId: puzzle.id, attempts, guessSequence, gameState };
     localStorage.setItem(stateKey(), JSON.stringify(data));
   }
 
   function loadState() {
+    attempts = 0;
+    guessSequence = [];
+    lastGuessedId = null;
+    selectedSuspect = null;
     try {
       const raw = localStorage.getItem(stateKey());
       if (!raw) { gameState = 'READING'; return; }
@@ -1109,7 +1146,6 @@
       if (data.puzzleId !== puzzle.id) { gameState = 'READING'; return; }
       attempts = data.attempts || 0;
       guessSequence = data.guessSequence || [];
-      revealedBonusCount = data.revealedBonusCount || 0;
       gameState = data.gameState || 'READING';
     } catch {
       gameState = 'READING';
@@ -1309,23 +1345,13 @@
     const list = $('clueList');
     list.innerHTML = '';
 
-    // Starter clues
+    // Only starter clues appear in the evidence panel. Exonerations live on the cleared suspect cards.
     puzzle.clues.starter.forEach((clue, i) => {
       const div = document.createElement('div');
       div.className = 'clue-item';
       div.innerHTML = `<span class="clue-number">${i + 1}.</span><span class="clue-text">${clue}</span>`;
       list.appendChild(div);
     });
-
-    // Bonus clues
-    for (let i = 0; i < revealedBonusCount && i < puzzle.clues.bonus.length; i++) {
-      const div = document.createElement('div');
-      div.className = 'clue-item bonus';
-      const isNew = (i === revealedBonusCount - 1 && gameState !== 'SOLVED');
-      div.innerHTML = `<span class="clue-number">${puzzle.clues.starter.length + i + 1}.</span><span class="clue-text">${puzzle.clues.bonus[i]}${isNew ? ' <span class="clue-new-tag">NEW</span>' : ''}</span>`;
-      if (isNew) div.classList.add('fade-in');
-      list.appendChild(div);
-    }
   }
 
   function renderSuspects() {
@@ -1349,6 +1375,21 @@
       if (isCleared) badge = '<span class="suspect-badge cleared-badge">Cleared</span>';
       if (isGuilty) badge = '<span class="suspect-badge guilty-badge" id="guiltyBadge">Guilty</span>';
 
+      let exonerationHTML = '';
+      if (isCleared) {
+        const exonerations = puzzle.clues.exonerations || {};
+        const reason = exonerations[suspect.id];
+        if (reason) {
+          const isNew = (suspect.id === lastGuessedId);
+          exonerationHTML = `
+            <div class="suspect-exoneration${isNew ? ' fade-in' : ''}">
+              <span class="suspect-exoneration-label">Cleared</span>
+              ${reason}
+            </div>
+          `;
+        }
+      }
+
       card.innerHTML = `
         ${badge}
         <div class="suspect-header">
@@ -1356,6 +1397,7 @@
           <span class="suspect-role">${suspect.role}</span>
         </div>
         <div class="suspect-alibi">${suspect.alibi}</div>
+        ${exonerationHTML}
       `;
 
       if (!isCleared && !isGuilty && gameState !== 'SOLVED') {
@@ -1432,15 +1474,14 @@
 
     if (guessId === puzzle.culprit_id) {
       // Correct!
+      lastGuessedId = null;
       gameState = 'SOLVED';
       saveState();
       recordCompletion(attempts);
       render();
     } else {
-      // Wrong
-      if (revealedBonusCount < puzzle.clues.bonus.length) {
-        revealedBonusCount++;
-      }
+      // Wrong — exoneration appears on the cleared suspect's card
+      lastGuessedId = guessId;
       gameState = 'READING';
       saveState();
 
@@ -1450,6 +1491,7 @@
         // Auto-solve: the last suspect must be the culprit
         attempts++;
         guessSequence.push(remaining[0].id);
+        lastGuessedId = null;
         gameState = 'SOLVED';
         saveState();
         recordCompletion(attempts);
