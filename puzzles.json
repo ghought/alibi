@@ -10,48 +10,48 @@
         "id": "raj",
         "name": "Raj",
         "role": "Marketing",
-        "alibi": "I was in the conference room for the 12-1 team lunch meeting. Pizza was served \u2014 I had two slices."
+        "alibi": "I was in the 12-to-1 team lunch in the conference room. I stepped out briefly around 12:30 to take a call from my kid's school \u2014 I paced in the hallway so I wouldn't disturb anyone."
       },
       {
         "id": "lena",
         "name": "Lena",
         "role": "Design",
-        "alibi": "I went to Sweetgreen for my usual kale salad. I didn't get back to the office until 1:15."
+        "alibi": "I went to Sweetgreen for a kale salad. The line was long today, so I didn't get back until later than usual. I ate at my desk when I got in."
       },
       {
         "id": "ben",
         "name": "Ben",
         "role": "Engineering",
-        "alibi": "I was at my desk eating pad thai leftovers. I heated them in the microwave around 12:25."
+        "alibi": "I had pad thai at my desk. I swung by the kitchen around 12:30 for cold brew \u2014 the pitcher was nearly empty so I topped it off from the jug like a good citizen."
       },
       {
         "id": "priya",
         "name": "Priya",
         "role": "HR",
-        "alibi": "I was out on my lunchtime walk listening to a podcast. I didn't eat lunch today."
+        "alibi": "I did my lunchtime walk with a podcast. I came through the kitchen around 12:40 to grab water, then went back to my desk."
       },
       {
         "id": "dex",
         "name": "Dex",
         "role": "Finance",
-        "alibi": "I was in the kitchen around 12:20 making a cup of tea. I remember seeing the tuna sandwich was still there."
+        "alibi": "I ducked into the kitchen around 12:20 to make tea. I remember Margot's tuna sandwich was on the top shelf \u2014 her label tape always cracks me up."
       }
     ],
     "culprit_id": "ben",
     "clues": {
       "starter": [
-        "The office microwave has a digital log. Its last use was at 12:05 PM \u2014 it was not used again until 1:40 PM.",
-        "Security footage captured a person in a gray hoodie entering the kitchen at 12:32 PM and leaving with a wrapped sandwich.",
-        "Only two people in the office were wearing gray hoodies today: Ben and Dex. Dex's keycard shows he entered the kitchen at 12:20 and left at 12:23 \u2014 before the theft."
+        "The office kitchen has a motion-activated overhead light. It turned on at 12:28 PM and stayed on until 12:33 PM, then didn't trigger again until 12:50 PM.",
+        "Margot's sandwich was on the top shelf of the fridge, tucked behind the communal cold brew pitcher. You couldn't see or reach it without moving the pitcher aside.",
+        "The cold brew log \u2014 a clipboard the office keeps on the counter \u2014 shows the pitcher was topped off from the jug at 12:30 PM. The previous top-off was yesterday."
       ],
       "exonerations": {
-        "raj": "Raj's team meeting was confirmed by four attendees \u2014 he was in the conference room from 12 to 1 PM without leaving.",
-        "lena": "Lena's Sweetgreen receipt is timestamped 12:48. She couldn't have been in the office at 12:32.",
-        "priya": "Priya's podcast app shows continuous playback from 11:55 to 1:00 PM, and her phone's GPS puts her three blocks from the office during the theft window.",
-        "dex": "Dex's keycard shows he was in the kitchen from 12:20 to 12:23 \u2014 seven minutes before the theft at 12:30."
+        "raj": "Raj's phone records show an incoming call from his kid's school at 12:31 that lasted eight minutes. Two coworkers saw him pacing the hallway outside the conference room during the entire call \u2014 nowhere near the kitchen.",
+        "lena": "Lena's Sweetgreen receipt is timestamped 12:48 PM and the shop is a 12-minute walk away. She didn't re-enter the office until 1:02, per the badge log.",
+        "priya": "Priya's podcast app shows continuous playback from 11:55 to 12:45, and her phone's GPS puts her three blocks from the office until 12:45. Her 12:50 kitchen entry matches the next motion-light trigger exactly.",
+        "dex": "Dex's keycard shows he was in the kitchen from 12:20 to 12:23 \u2014 and the cold brew pitcher was still visibly full at 12:25 on the fridge-cam frame. If he'd moved the pitcher aside to reach the sandwich, it would have been noticed."
       }
     },
-    "reveal": "Ben said he heated pad thai in the microwave at 12:25. But Clue 1 shows the microwave's last use was at 12:05 PM \u2014 Ben's story is a lie. Clue 2 puts a gray-hooded person in the kitchen at 12:32 taking a sandwich, and Clue 3 narrows that to Ben or Dex \u2014 with Dex ruled out by his 12:20\u201312:23 keycard entry. Ben was the hooded figure."
+    "reveal": "No single clue names the thief \u2014 you had to chain them. Clue 1 narrows the theft to a five-minute window (12:28\u201312:33) when the kitchen was occupied. Clue 2 establishes that reaching the sandwich required moving the cold brew pitcher aside. Clue 3 logs exactly one cold brew top-off at 12:30 \u2014 the moment someone had both the pitcher in hand and the fridge open. Ben volunteered in his own alibi that he topped off the pitcher around 12:30. He put himself in the kitchen, in the window, with his hand on the one object concealing the sandwich. Raj was on the phone in the hallway, Dex left before the window, Priya arrived after it, and Lena wasn't even in the building."
   },
   {
     "id": "2026-04-11",
@@ -64,48 +64,48 @@
         "id": "mrs-chen",
         "name": "Mrs. Chen",
         "role": "3B, Retired",
-        "alibi": "I was in my apartment watching my show. I haven't been down to the lobby since I got back from groceries this morning."
+        "alibi": "I watched my 4 PM show in my apartment. I did pop down to grab a package from the mailroom around 4 \u2014 but I went right back up."
       },
       {
         "id": "jake",
         "name": "Jake",
         "role": "5A, Podcaster",
-        "alibi": "I was recording an episode in my home studio from 3 to 5. My guest can verify \u2014 we didn't take a break."
+        "alibi": "I was recording an episode with my guest Diana from 3 to 5. She was on a video call from her place \u2014 she'll confirm we didn't pause."
       },
       {
         "id": "marcus",
         "name": "Marcus",
         "role": "2C, Graphic Designer",
-        "alibi": "I walked my dog Pepper at 4. We were out for about 30 minutes and came back soaked."
+        "alibi": "I took Pepper on our usual walk at 4. We cut it short because of the rain \u2014 back in about 15 minutes, both of us soaked through."
       },
       {
         "id": "sofia",
         "name": "Sofia",
         "role": "4D, Med Student",
-        "alibi": "I was studying at the coffee shop across the street. I came back around 4:30 and went straight to my apartment."
+        "alibi": "I was studying at the coffee shop across the street. I walked back over around 4:15 in the rain \u2014 noticed the red umbrella in the stand but I already had my own."
       },
       {
         "id": "derek",
         "name": "Derek",
         "role": "1A, Building Super",
-        "alibi": "I was fixing the radiator in 2B from 3:45 to 4:30. Marcus wasn't home \u2014 I had to let myself in."
+        "alibi": "I was fixing the radiator in 2B from 3:45 to 4:30. The tenant of 2B was home the whole time \u2014 made small talk while I worked."
       }
     ],
     "culprit_id": "marcus",
     "clues": {
       "starter": [
-        "The lobby camera shows someone carrying Evelyn's red umbrella leaving the building at 4:16 PM.",
-        "It has been raining steadily since 2 PM.",
-        "Marcus's dog Pepper is terrified of rain \u2014 Marcus posted in the building chat last week that Pepper refuses to step outside in even a drizzle."
+        "The lobby camera shows someone carrying Evelyn's red umbrella leaving through the front door at 4:16 PM. They arrive at the umbrella stand from the elevator \u2014 not from the street.",
+        "Maintenance mopped the lobby floor at 4:10 PM. No additional wet footprints appear on the floor between 4:10 and 4:16 \u2014 the thief was already dry when they reached the stand.",
+        "The elevator's usage log shows exactly one trip in the 4:10\u20134:20 window: called to the lobby from the 2nd floor at 4:14, returned to the 2nd floor at 4:17. No other elevator movement in that window."
       ],
       "exonerations": {
-        "mrs-chen": "Mrs. Chen's TV was on all afternoon; her downstairs neighbor confirmed hearing the exact show that airs 3 to 5 PM continuously.",
-        "jake": "Jake's podcast guest confirmed an unbroken recording session from 3 to 5 PM \u2014 no bathroom breaks, no pauses.",
-        "sofia": "Sofia's coffee shop receipt is timestamped 4:28 PM, and the cashier confirms she was at her laptop from 2:30 to 4:30.",
-        "derek": "Derek's building keycard shows continuous presence inside Apt 2B from 3:45 to 4:30, and the tenant of 2B was home to let him out."
+        "mrs-chen": "Mrs. Chen's mailroom badge log puts her there from 3:52 to 3:58, not 4 PM, and a neighbor saw her ride the elevator back up to 3 at 3:59. She was in 3B at 4:14.",
+        "jake": "Jake's recording software logged an unbroken 3-to-5 PM session, and his guest Diana's video call records confirm continuous presence on camera. No elevator trip from 5 either.",
+        "sofia": "Sofia's coffee shop receipt is timestamped 4:23 PM; the lobby camera catches her walking in dripping wet at 4:28, well after the theft. She misremembered the time \u2014 she actually walked over later than she thought.",
+        "derek": "Derek's keycard shows continuous presence inside Apt 2B from 3:45 to 4:30, and the 2B tenant confirms he was there the entire time, radiator still disassembled at 4:14. The elevator trip from the 2nd floor wasn't him."
       }
     },
-    "reveal": "Marcus said he walked Pepper at 4 PM in the rain and came back soaked. But Clue 3 is clear: Pepper refuses to go outside in rain \u2014 Marcus announced this himself in the building chat. Clue 2 confirms it was raining steadily all afternoon, so Marcus's whole story is a lie. Clue 1 shows someone took the red umbrella at 4:16 \u2014 Marcus himself, ducking out while pretending to be on a walk."
+    "reveal": "No single clue names Marcus \u2014 you had to triangulate. Clue 2 tells you the thief didn't walk in from the rainy street (no new wet footprints). Clue 1 confirms they came from the elevator. Clue 3 narrows it to one trip: someone riding from the 2nd floor down at 4:14 and back up at 4:17. Of the five suspects, only two had any reason to be on the 2nd floor \u2014 Marcus, who lives in 2C, and Derek, who was working in 2B. Derek's keycard and the 2B tenant both confirm he never left the apartment. That leaves Marcus \u2014 who claimed to be out walking Pepper in the rain, but was actually slipping down in the elevator to grab the umbrella and duck out unseen."
   },
   {
     "id": "2026-04-12",
@@ -118,25 +118,25 @@
         "id": "carlos",
         "name": "Carlos",
         "role": "Night Security",
-        "alibi": "I was at the front desk all night. I did my rounds at 10 PM and 2 AM but I never went into the break room."
+        "alibi": "I was at the front desk all night. I did my rounds at 10 PM and 2 AM \u2014 on the 2 AM round I stopped by the break room to flick the lights off, but I didn't open the fridge."
       },
       {
         "id": "tamara",
         "name": "Tamara",
-        "role": "Cleaning Crew",
+        "role": "Cleaning Crew (3rd Floor)",
         "alibi": "I cleaned the third floor from 8 to 10 PM. The break room is on the second floor \u2014 that's Jess's zone."
       },
       {
         "id": "owen",
         "name": "Owen",
         "role": "Engineering Lead",
-        "alibi": "I stayed late debugging a server issue. I was at my desk until midnight and ordered pizza delivery around 9."
+        "alibi": "I stayed late debugging a server issue. Ordered pizza around 9 \u2014 ate it at my desk with the plastic fork from the delivery bag."
       },
       {
         "id": "jess",
         "name": "Jess",
-        "role": "Cleaning Crew",
-        "alibi": "I cleaned the second floor from 8 to 10 PM. I saw the cake in the fridge but I didn't touch it."
+        "role": "Cleaning Crew (2nd Floor)",
+        "alibi": "I cleaned the second floor from 8 to 10 PM. I saw the cake in the fridge on my rounds but I didn't touch it."
       },
       {
         "id": "maya",
@@ -148,18 +148,18 @@
     "culprit_id": "carlos",
     "clues": {
       "starter": [
-        "The break room keycard log shows three door entries between 6 PM and 7 AM: at 8:12 PM, 8:47 PM, and 2:04 AM.",
-        "After midnight, Carlos was the only person in the building \u2014 every other badge had exited. His security round log shows he badged the second-floor hallway checkpoint at 2:03 AM.",
-        "The break room sink contained a fork with chocolate frosting residue. The dishwasher was empty and clean."
+        "The break room door badge log shows three entries between 6 PM and 7 AM: at 8:12 PM, 8:47 PM, and 2:04 AM.",
+        "The break room fridge has an internal thermometer that logs temperature. A spike at 2:07 AM shows the door was open for roughly 90 seconds. No matching spikes occurred at 8:12 or 8:47 \u2014 whoever entered earlier didn't open the fridge.",
+        "The office dishwasher runs an automatic cycle every night at 11 PM and was empty and clean by 7 AM. A metal fork with chocolate frosting residue was left in the break room sink \u2014 placed after the 11 PM cycle completed."
       ],
       "exonerations": {
-        "tamara": "Tamara's floor-cleaning checklist and timestamped photos confirm she was on the third floor, not the second, from 8 to 10 PM.",
-        "owen": "Owen's badge shows he left the building at 11:58 PM and didn't return \u2014 he was home before the 2:04 AM entry.",
-        "jess": "Jess's cleaning checklist requires all utensils go in the dishwasher. The fork in the sink is the opposite of her routine \u2014 she wouldn't have left it there.",
-        "maya": "Maya's concert ticket was scanned at 7:45 PM downtown, a 40-minute drive from the office. She didn't return to the building."
+        "tamara": "Tamara's 3rd-floor cleaning checklist and badge log confirm continuous 3rd-floor presence 8 to 10 PM, then she badged out at 10:12 PM and didn't return.",
+        "owen": "Owen badged out at 11:58 PM, before the fridge spike. His trash had the pizza delivery bag with a plastic fork \u2014 matching his alibi and not the metal fork left in the break room sink.",
+        "jess": "Jess's 2nd-floor rounds account for the 8:12 and 8:47 break room entries (lights, trash, countertops \u2014 no fridge). Her cleaning checklist requires all utensils go in the dishwasher, and she badged out at 10:15 PM, hours before the 2 AM fridge spike.",
+        "maya": "Maya's concert ticket was scanned at 7:45 PM downtown, a 40-minute drive from the office. She didn't badge back in to the building."
       }
     },
-    "reveal": "Carlos said he never went into the break room. But Clue 1 shows someone opened the break room door at 2:04 AM, and Clue 2 places Carlos as the only person in the building at that hour \u2014 with his badge hitting the second-floor checkpoint at 2:03 AM, one minute before the break room door opened. Clue 3 shows a fork abandoned in the sink, consistent with someone grabbing a quick bite and leaving no trace."
+    "reveal": "No clue named Carlos \u2014 you had to chain them. Clue 1 lists three break room entries, but Clue 2 narrows the actual theft to one: the 2:04 AM entry, the only one that opened the fridge. Clue 3 puts the fork in the sink after the 11 PM dishwasher cycle \u2014 past the evening cleaners' shift. Tamara and Jess had badged out by 10:15, Owen at 11:58, Maya was at a concert. Carlos's own alibi volunteers that he 'stopped by the break room' on his 2 AM round \u2014 the exact minute of the fridge spike. He gave himself away trying to sound helpful about his rounds."
   },
   {
     "id": "2026-04-13",
@@ -202,18 +202,18 @@
     "culprit_id": "victor",
     "clues": {
       "starter": [
-        "The library's front door sensor log shows Victor exited at 3:12 PM \u2014 not at 3 PM as he claimed.",
-        "Helen's display case key was missing from her desk drawer at 4 PM and later found on the floor in the sci-fi section, on the path to the front door.",
-        "Between 3:00 and 3:15 PM, Victor was the only patron in the sci-fi section \u2014 the display case is in the alcove directly off that aisle."
+        "The library's front door sensor logs one unexplained exit at 3:12 PM that Helen didn't log at the desk \u2014 she was buried in a returns pile at that moment and waved the person through without scanning.",
+        "The display case is in the alcove directly off the sci-fi aisle. Helen's key was missing from her desk drawer between 3 and 4 PM and was later found on the floor in the sci-fi aisle, on the path to the front door.",
+        "The library's guest Wi-Fi logs every device connection. One patron's phone stayed connected from 1:30 PM to 3:14 PM \u2014 two minutes past the claimed 3 PM exit \u2014 and disconnected the moment the 3:12 front-door exit fired."
       ],
       "exonerations": {
-        "helen": "Helen ran the children's reading hour from 2 to 3, then stayed at the front desk visible to six patrons and the library assistant until close.",
-        "dana": "Dana's return-cart camera timestamped her continuously in the nonfiction wing from 2 to 4:30 PM.",
-        "keith": "Keith's basement work order was logged by the plumbing company's dispatch \u2014 he was in the basement the whole afternoon, with a wet floor to prove it.",
-        "suki": "Suki was visible at her window table to both Helen and the library assistant from noon to 4 PM \u2014 she never left her seat."
+        "helen": "Helen ran children's reading hour from 2 to 3, then stayed at the front desk visible to six patrons and the library assistant until close \u2014 she never entered the sci-fi alcove.",
+        "dana": "Dana's return-cart camera timestamped her continuously in the nonfiction wing from 2 to 4:30 PM \u2014 the opposite end of the library from the display case.",
+        "keith": "Keith's basement work order was logged by the plumbing company's dispatch at 12:58 and 4:02 PM bookending a wet-floor repair \u2014 basement keycard shows continuous presence, no upstairs trips.",
+        "suki": "Suki was visible at her window table to both Helen and the library assistant from noon to 4 PM. Her headphones and laptop never moved \u2014 the assistant checked on her twice."
       }
     },
-    "reveal": "Victor said he left at 3 PM and that Helen checked him out. But Clue 1 shows he actually exited at 3:12 \u2014 twelve unaccounted minutes. Clue 3 places him alone in the sci-fi aisle during that exact window, right next to the display case. Clue 2 shows the key he used was dropped in that same aisle on his way out. Victor lifted the key while Helen was distracted greeting returning readers, opened the case, took the book, and slipped out."
+    "reveal": "Victor said Helen checked him out at 3 PM. But Clue 3 shows a patron's phone stayed on the library Wi-Fi until 3:14 PM \u2014 disconnecting at the exact moment of the 3:12 front-door exit Helen never logged (Clue 1). Of the suspects, only Victor claimed to have left at 3 \u2014 and his own story is 14 minutes short. Clue 2 closes the loop: the display-case key was dropped in the sci-fi aisle on the path from the alcove to the front door. Victor lifted the key while Helen was buried in returns, took the book from the alcove, and slipped out unscanned."
   },
   {
     "id": "2026-04-14",
@@ -256,18 +256,18 @@
     "culprit_id": "linda",
     "clues": {
       "starter": [
-        "Mr. Patterson's Ring doorbell camera was offline from 11:45 PM to 12:10 AM due to a Wi-Fi outage.",
-        "Mr. Patterson and Linda share a router \u2014 they live in a duplex and split one Wi-Fi connection. The outage affected only their two units. Linda would have known the camera was dark.",
-        "Fresh wheelbarrow tracks in the soft soil next to Mr. Patterson's lawn lead directly to Linda's side of the duplex."
+        "Mr. Patterson's Ring camera was offline from 11:45 PM to 12:10 AM due to a Wi-Fi outage. Mr. Patterson lives in a duplex and shares the router with the tenant of the other unit \u2014 the outage affected only their two addresses.",
+        "The stolen gnome weighs 47 pounds. Fresh wheelbarrow tracks begin in the soft soil next to Mr. Patterson's lawn and end at the gate that divides his half of the duplex yard from the other half.",
+        "Router outages on that ISP trigger a push notification to every device on the network's admin account. The notification log shows the 11:45 PM outage alert was opened and dismissed on one phone within 30 seconds of firing \u2014 meaning the account holder was awake."
       ],
       "exonerations": {
-        "tom": "Tom's last dog-walking client confirmed dropoff at 9:25 PM three blocks away, and his car's GPS shows it never left his driveway after 9:40 PM.",
-        "wendy": "Wendy's HOA meeting attendance and the community center's alarm log confirm she was there until 11:05 PM, and her car's GPS shows her home by 11:20 \u2014 after which she stayed put.",
-        "brett": "Brett's gaming session logs confirm continuous input activity from 10:30 PM to 2:15 AM with no breaks longer than 2 minutes \u2014 not enough time to cross the street and back.",
-        "diane": "Diane's smart watch sleep log shows uninterrupted sleep from 8:55 PM to 6:40 AM \u2014 her heart rate stayed in deep-sleep range all night."
+        "tom": "Tom's last dog-walking client confirmed dropoff at 9:25 PM three blocks away, and his car's GPS shows it never left his driveway after 9:40 PM. His house is four blocks from Mr. Patterson's \u2014 no route in or out on foot in that window.",
+        "wendy": "Wendy's HOA meeting attendance and the community center's alarm log confirm she was there until 11:05 PM, and her car's GPS shows her home by 11:20 \u2014 after which she stayed put until morning.",
+        "brett": "Brett's gaming session logs confirm continuous input activity from 10:30 PM to 2:15 AM with no breaks longer than 2 minutes \u2014 not enough time to cross the street and back with a wheelbarrow.",
+        "diane": "Diane's smart watch sleep log shows uninterrupted deep-sleep heart rate from 8:55 PM to 6:40 AM, and her home's exterior cam shows no one left the house all night."
       }
     },
-    "reveal": "The theft happened during the Wi-Fi outage that knocked out Mr. Patterson's Ring camera (Clue 1). Clue 2 is the smoking gun: Linda shares a router with Mr. Patterson, so she \u2014 and only she \u2014 knew exactly when the camera would be dark. Clue 3 shows wheelbarrow tracks from Mr. Patterson's lawn leading straight to Linda's side of the duplex. Motivated, informed, and with a trail of evidence, Linda took Gerald during her manufactured window."
+    "reveal": "No clue named Linda outright. Clue 1 established that only two households share the affected router \u2014 Mr. Patterson and whoever rents the other half of the duplex. Clue 3 is the tell: the shared router's outage alert was dismissed within 30 seconds by the account holder \u2014 meaning that person was awake when the camera went dark, despite Linda's claim she was asleep by midnight. Clue 2 shows wheelbarrow tracks ending at the gate between the two halves of the duplex \u2014 a direct-access path only the other tenant has. Linda was informed, awake, and had the only route."
   },
   {
     "id": "2026-04-15",
@@ -310,18 +310,18 @@
     "culprit_id": "zoe",
     "clues": {
       "starter": [
-        "The security camera covering the register was bumped off its angle at 8:18 AM \u2014 up until that minute it was pointing at the counter; after, it was pointing at the ceiling.",
-        "The tip jar was last confirmed at 8:15 AM by a customer's Instagram photo. Only staff were behind the counter between 8:15 and the end of the rush.",
-        "Nina spent the entire rush at the espresso machine at the far end of the counter, six feet from the register. Zoe \u2014 the trainee \u2014 was the one actually stationed at the register."
+        "The security camera covering the register was bumped off its angle at 8:18 AM \u2014 up until that minute it was pointing at the counter; after, it pointed at the ceiling. The last clear frame shows the tip jar on the counter next to the register.",
+        "The espresso machine has a per-drink log: 34 shots pulled between 8:00 and 9:00, gap never longer than 45 seconds. The machine sits at the far end of the counter, six feet from the register \u2014 whoever was pulling shots never moved.",
+        "At 8:17 AM a customer paid cash and received change \u2014 the POS system logged a $4.75 transaction and a drawer open. The person who operated the register in that minute was the last staff member confirmed at the counter before the camera was bumped."
       ],
       "exonerations": {
-        "nina": "Nina's espresso machine has a per-drink log \u2014 she pulled 34 shots between 8:00 and 9:00, with no gap longer than 45 seconds. She never stepped away.",
-        "ravi": "Ravi's corner booth is eight feet from the counter with a bench in between. Three other regulars confirm he was reading there from 8:15 to 9, and his order was rung up at 8:16.",
-        "greta": "Greta's delivery app GPS log shows she arrived at 8:32 AM and left at 8:34 AM \u2014 well after the camera was bumped at 8:18.",
+        "nina": "Nina's the one pulling the 34 espresso shots logged by the machine \u2014 she was pinned to the espresso station at the far end of the counter, six feet from the register, all rush. Receipts confirm she never rang up the drawer.",
+        "ravi": "Ravi's corner booth is eight feet from the counter with a bench in between. Three other regulars confirm he was reading there from 8:15 to 9, and his 8:16 cortado was rung up from behind the counter \u2014 he was on the customer side of it.",
+        "greta": "Greta's delivery app GPS log shows she arrived at 8:32 AM and left at 8:34 AM \u2014 well after the camera was bumped at 8:18. She never approached the counter.",
         "frank": "Frank's timecard confirms he badged in through the back entrance at 8:47 AM, nearly half an hour after the camera was tampered with."
       }
     },
-    "reveal": "Clue 1 pinpoints the moment the camera was bumped: 8:18 AM. Clue 2 narrows the suspect pool to staff only in that window. Clue 3 is the smoking gun: Nina was locked to the espresso machine six feet away, so the only staff member at the register was Zoe \u2014 the trainee who claimed she was 'shadowing Nina' but was actually manning the register alone. Zoe bumped the camera and pocketed the jar."
+    "reveal": "No clue named anyone directly. Clue 2 pins the espresso-shot puller to the far end of the counter the whole rush \u2014 Nina, per her alibi. But the 8:17 POS cash transaction (Clue 3) required someone to operate the register, six feet away \u2014 not Nina. That leaves a second staff member at the counter. Clue 1 times the camera tampering one minute later at 8:18. Zoe's alibi said she was 'right next to Nina' \u2014 but Nina wasn't at the register. Zoe was operating it alone, rang up the 8:17 cash customer, bumped the camera the next minute, and pocketed the jar before Frank clocked in."
   },
   {
     "id": "2026-04-16",
@@ -364,18 +364,18 @@
     "culprit_id": "angela",
     "clues": {
       "starter": [
-        "The reserved parking section on level 2 has only three spots, assigned to Dr. Patel, Angela, and the Chief of Medicine \u2014 who is on a two-week vacation in Greece.",
-        "The scratch runs down the driver's side of Dr. Patel's Tesla \u2014 the side facing Angela's parking spot.",
-        "Tesla Sentry Mode recorded a blurry figure leaning against the driver's side of the car at 7:43 AM, holding a large box against the door for nearly a minute. Angela's LinkedIn post from that morning included a photo of the same box captioned 'big delivery to the office today!'"
+        "The reserved parking section on level 2 has three spots. One belongs to Dr. Patel. The other two are assigned to an administrator and to the Chief of Medicine \u2014 the latter has been on vacation in Greece for ten days.",
+        "The scratch runs down the driver's side of Dr. Patel's Tesla \u2014 the side facing the immediately adjacent reserved spot.",
+        "Tesla Sentry Mode recorded a blurry figure at 7:43 AM leaning against the driver's side with a large cardboard box pressed against the door for nearly a minute. The box had a distinctive red logo. An Instagram post from the hospital's admin wing the same morning, tagged #newoffice, featured the same red-logo box captioned 'big delivery to the office today!'"
       ],
       "exonerations": {
-        "nurse-kim": "Nurse Kim's badge shows continuous presence in the ER from 5:58 AM to 2:04 PM. She didn't return to the garage during the scratch window.",
-        "gary": "Gary's booth has a camera and a log \u2014 he was in the booth taking tickets and waving cars through without a single gap longer than a bathroom break until 3 PM.",
-        "dr-mason": "Dr. Mason's surgical team confirmed he was scrubbed in from 7:55 AM to 12:20 PM, and his office keycard shows continuous occupancy until 4 PM.",
-        "phil": "Phil's visitor badge was issued at 9:03 AM and returned at 12:58 PM \u2014 well after the 7:43 AM incident."
+        "nurse-kim": "Nurse Kim's badge shows continuous presence in the ER from 5:58 AM to 2:04 PM. She parks on level 2 but in general staff parking, not the reserved section \u2014 a separate row.",
+        "gary": "Gary's booth has a camera and a log \u2014 he was taking tickets continuously until 3 PM. He works out of the entrance booth, not the reserved section.",
+        "dr-mason": "Dr. Mason parks on level 3 (not level 2 reserved), and his surgical team confirmed he was scrubbed in from 7:55 AM to 12:20 PM. His office keycard shows continuous occupancy until 4 PM.",
+        "phil": "Phil's visitor badge was issued at 9:03 AM and returned at 12:58 PM \u2014 well after the 7:43 AM incident. He parked on level 1 near the elevator, nowhere near the reserved section."
       }
     },
-    "reveal": "Clue 1 narrows the people parking next to Dr. Patel to just Angela (the Chief is in Greece). Clue 2 confirms the damage came from the neighboring spot \u2014 Angela's. Clue 3 is the smoking gun: Tesla Sentry Mode caught Angela at 7:43 AM pressing a large box against Dr. Patel's car, and Angela herself posted a photo of that same box online that morning. She scraped the car while unloading and never reported it."
+    "reveal": "No clue named Angela. Clue 1 narrows the reserved-spot residents to two people besides Dr. Patel: an administrator and the Chief \u2014 and the Chief is in Greece. Clue 2 places the scratch source in the immediately adjacent spot, meaning the administrator's. Clue 3 ties a distinctive red-logo box to an Instagram post from the admin wing that same morning. Among the five suspects, only Angela is an administrator. Tesla Sentry caught her pressing her newly delivered box against Dr. Patel's door \u2014 and she posted a photo of the very same box online, not realizing it would identify her."
   },
   {
     "id": "2026-04-17",
@@ -418,18 +418,18 @@
     "culprit_id": "devon",
     "clues": {
       "starter": [
-        "The bar's back door was propped open from 5:30 to 6:30 PM to air out the room. It leads to the alley behind the bar.",
-        "Devon's car was parked directly behind the back door in the alley from 6 PM onward \u2014 the only car there.",
-        "Last month, Devon specifically emailed the bar to request the house Shure mic for his set: 'that mic sounds incredible on my voice.' Tonight he told everyone he brought his own because he doesn't trust house gear."
+        "The bar's back door was propped open from 5:30 to 6:30 PM to air out the room. It leads to an alley. Exactly one vehicle parked in the alley during that window \u2014 a car with a touring-musicians' union sticker on the rear window, arriving at 6:00 PM.",
+        "The missing mic is a specific Shure SM58 that the bar registered in Shure's rewards program. Six weeks ago the bar received an email from a performer offering to buy this exact unit: 'that mic sounds incredible on my voice \u2014 I'd love to own this one eventually.' The bar declined.",
+        "Every performer who's done a set at The Blue Note in the past year has a rider on file \u2014 a standard list of stage preferences. One suspect's rider, from a booking last fall, specifies 'Shure SM58 house mic preferred; I travel without my own.' Tonight the same person told staff the opposite."
       ],
       "exonerations": {
-        "charlie": "Charlie's taco truck receipt is timestamped 5:15 PM, and the truck is a 20-minute walk away. He couldn't have been back at the bar until close to 6:45.",
-        "mia": "Mia's bar POS system logged 43 drink orders rung up between 5:30 and 7 PM \u2014 she was behind the bar with a line of customers the entire time.",
+        "charlie": "Charlie's taco truck receipt is timestamped 5:15 PM, and the truck is a 20-minute walk away. He arrived back at 6:44 per the alley cam \u2014 after the back door was already closed.",
+        "mia": "Mia's bar POS system logged 43 drink orders rung up between 5:30 and 7 PM \u2014 she was behind the bar with a line of customers the entire time. She never went backstage.",
         "sam": "Sam's soda run at 5:30 was confirmed by Mia, who poured it. Sam went straight back to the office and the office door security cam shows no exits until 7.",
-        "liz": "Liz signed in on the sheet at 6:33 PM and chatted with the doorman for 27 minutes straight \u2014 the doorman confirms she never moved."
+        "liz": "Liz signed in on the sheet at 6:33 PM and chatted with the doorman for 27 minutes straight \u2014 the doorman confirms she never moved. She arrived on foot; no car in the alley."
       }
     },
-    "reveal": "Clue 3 exposes Devon's lie: he claims he doesn't trust house equipment, but just last month he emailed the bar begging to use the exact mic that's now missing. He loves that mic \u2014 he didn't bring his own, he came to take this one. Clue 1 shows the back door was wide open during his arrival, and Clue 2 places his car parked right outside that door \u2014 a clean in-and-out route for walking a $400 mic to his trunk."
+    "reveal": "Clue 3 catches one suspect in a lie against their own on-file rider \u2014 it says 'travel without my own mic, prefer house Shure,' but tonight that person claimed the opposite. Clue 2 shows a performer specifically offered to buy this exact mic six weeks ago. Clue 1 places a car with a touring-musicians' union sticker in the alley during the open-back-door window \u2014 the only vehicle there. Of the five suspects, only Devon is a touring performer. He arrived claiming he'd brought his own mic, walked the house Shure out the open back door to his car, and contradicted his own rider doing it."
   },
   {
     "id": "2026-04-18",
@@ -472,18 +472,18 @@
     "culprit_id": "jordan",
     "clues": {
       "starter": [
-        "The leaked photo's metadata shows it was taken at 2:22 PM, and it was posted to the group chat at 2:25 PM.",
-        "Jordan signed out Professor Walsh's office key at 2:20 PM and returned it at 2:35 PM \u2014 the only person to access the office all afternoon. Walsh was in a faculty meeting from 1 to 4 PM.",
-        "The sealed envelope containing the exams was found on Walsh's desk with the seal cut open. Walsh never touched it \u2014 she was in her meeting when Jordan delivered it."
+        "The leaked photo's EXIF metadata shows it was taken at 2:22 PM. An expert matched the overhead-light flicker frequency in the photo to Walsh's office lighting \u2014 not the copy room, not a classroom, not the department office. The photo was taken inside Walsh's office.",
+        "Walsh was in a faculty meeting from 1 to 4 PM, verified by sign-in and four colleagues \u2014 she never returned to her office during that window. Her office has keycard access and logs every entry; only one entry occurred between 1 and 4 PM.",
+        "The sealed envelope was found on Walsh's desk with the seal cut open, and a small pair of scissors with faint envelope-paper fibers was later found on a TA workstation in the shared TA room."
       ],
       "exonerations": {
-        "elena": "Elena's copy room badge log shows she didn't leave the copy room between 1 and 3 PM, and she handed the sealed envelope off without opening it (Jordan's signed receipt confirms this).",
-        "marcus-t": "Marcus's library study room booking and keycard access log confirm continuous presence from 12:55 PM to 5:10 PM, with four witnesses.",
-        "professor-lin": "Prof. Lin's office is keycard-locked and logged \u2014 she never left her office from 12:45 PM to 4:15 PM, and her door faces Walsh's (she'd have been seen going in).",
-        "tanya": "Tanya's front-desk log tracks every key sign-out. She never left her post, and the only key handed out for Walsh's office was Jordan's at 2:20."
+        "elena": "Elena's copy room badge log shows she didn't leave the copy room between 1 and 3 PM, and she handed the sealed envelope off without opening it (the department's signed receipt confirms this). She had no keycard access to Walsh's office.",
+        "marcus-t": "Marcus is a student \u2014 no keycard access to Walsh's office. His library study room booking and keycard log also confirm continuous presence from 12:55 PM to 5:10 PM with four witnesses.",
+        "professor-lin": "Prof. Lin's own office is keycard-locked and her log shows continuous presence from 12:45 PM to 4:15 PM. Her door faces Walsh's \u2014 she'd have seen anyone approach \u2014 and she has no key to Walsh's office.",
+        "tanya": "Tanya's front-desk sign-out log tracks every key handout. She never left her post, and she records every request \u2014 the log shows only one Walsh-office key sign-out that afternoon, by the TA at 2:20 PM."
       }
     },
-    "reveal": "Clue 2 places Jordan inside Walsh's locked office from 2:20 to 2:35 PM \u2014 the only person who had access all afternoon. Clue 1 pinpoints the photo's capture at 2:22 PM, right inside that 15-minute window. Clue 3 shows the sealed envelope was cut open, but Walsh never touched it \u2014 she was still in her meeting. Jordan had the only opportunity, opened the envelope, photographed the exam, and posted it three minutes later."
+    "reveal": "No clue named Jordan. Clue 1 places the photo inside Walsh's office at 2:22 PM via light-frequency matching. Clue 2 rules out Walsh herself and establishes only one keycard entry occurred in the window. Tanya's log (see her exoneration) shows that one entry belonged to 'the TA' \u2014 and Jordan is the only TA in the suspect list. Clue 3 closes the loop: the envelope was cut open with scissors left on a TA workstation. Jordan had sole access, sole motive to route the key through the front desk, and physical evidence tying the opening to his own workspace."
   },
   {
     "id": "2026-04-19",
@@ -514,7 +514,7 @@
         "id": "wayne",
         "name": "Wayne",
         "role": "Gym Regular",
-        "alibi": "I did weights from 6:15 to 7. I used the locker next to Pete's. I didn't see anything suspicious."
+        "alibi": "I did weights from 6:15 to 7. I have an assigned locker next to Pete's \u2014 I use the same one every day. I didn't see anything suspicious."
       },
       {
         "id": "hank",
@@ -526,18 +526,18 @@
     "culprit_id": "wayne",
     "clues": {
       "starter": [
-        "The gym's check-in system shows Wayne arrived at 5:50 AM \u2014 25 minutes before the 6:15 time he claimed he started lifting.",
-        "The pro shop sold one identical bag to Pete's at 5:55 AM this morning, paid in cash. The transaction was processed by Lisa. The pro shop is a short walk from the men's locker room.",
-        "Wayne's assigned locker \u2014 used daily \u2014 is directly next to Pete's."
+        "The pro shop sold one identical bag to Pete's at 5:55 AM this morning, paid in cash. This bag model is discontinued \u2014 the sale emptied that SKU from the shelf. The pro shop is a 30-second walk from the men's locker room.",
+        "The men's locker room door opens with a fob that logs every entry. Between 5:45 and 7 AM, one fob registered at 5:52 AM and didn't register an exit until 7:05 AM \u2014 a 73-minute stretch inside the locker room. No other fob that morning showed a similar pattern.",
+        "The gym's overhead CCTV caught Pete placing his bag in Locker 14 at 5:57 AM. Locker 15 \u2014 the unit immediately adjacent \u2014 is permanently assigned to a daily regular per the gym's locker-assignment roster."
       ],
       "exonerations": {
-        "coach-ray": "Coach Ray's client confirmed a full uninterrupted session from 5:45 to 7 AM on the gym floor, visible on the gym's main-floor camera the whole time.",
-        "dennis": "Dennis's treadmill data log shows continuous activity from 6:02 to 6:44 AM with no pauses longer than 30 seconds \u2014 not enough time to enter the locker room.",
-        "lisa": "Lisa processed 47 check-ins and a pro shop sale from the front desk between 5:30 and 7:30 AM \u2014 she never left her post.",
-        "hank": "Hank's keycard log shows him in the pool area from 5:58 to 7:32 AM, and the pool deck cam has him in frame continuously."
+        "coach-ray": "Coach Ray's client confirmed a full uninterrupted session from 5:45 to 7 AM on the gym floor, visible on the gym's main-floor camera the whole time. He never badged into the men's locker room.",
+        "dennis": "Dennis's treadmill data log shows continuous activity from 6:02 to 6:44 AM with no pauses longer than 30 seconds. His locker room entry fob fired at 6:46 AM and exited at 7:10 AM \u2014 well after the swap.",
+        "lisa": "Lisa processed 47 check-ins and a pro shop sale from the front desk between 5:30 and 7:30 AM \u2014 she never left her post. Her fob has no entries for the men's locker room.",
+        "hank": "Hank's keycard log shows him in the pool area from 5:58 to 7:32 AM, and the pool deck cam has him in frame continuously. He was nowhere near the men's locker room."
       }
     },
-    "reveal": "Clue 1 catches Wayne in a 25-minute lie about when he arrived. Clue 2 reveals why: at 5:55 AM \u2014 five minutes after Wayne showed up \u2014 an identical gym bag was bought from the pro shop in cash. Clue 3 places Wayne in the locker right next to Pete's, giving him a perfect setup. Wayne bought the decoy, waited for Pete to head to the gym floor, and swapped the bags. His '6:15 start time' was a cover for the 25 minutes he actually needed."
+    "reveal": "No clue named Wayne. Clue 3 ties Wayne to the adjacent locker (Locker 15, his assigned daily locker, right next to Pete's Locker 14). Clue 2 shows one fob stayed inside the locker room for 73 straight minutes \u2014 from 5:52 AM to 7:05 AM, impossible to square with Wayne's claim that his weight session ran 6:15 to 7. Clue 1 times the decoy purchase at 5:55, three minutes after that 5:52 fob entry. Wayne arrived 25 minutes earlier than he claimed, bought the decoy bag in cash, waited in the locker room for Pete to head to the floor, swapped the bags, and emerged at 7:05 pretending his 'workout' had just ended."
   },
   {
     "id": "2026-04-20",
@@ -580,18 +580,18 @@
     "culprit_id": "dot",
     "clues": {
       "starter": [
-        "Three neighbors served themselves chili between 5:00 and 5:10 PM and all said it tasted perfect. The first complaint was Dot's at 5:15.",
-        "The salt shaker next to the chili was nearly empty; the one at the other end of the food table was still full. The sabotage happened at the chili end of the table.",
-        "A neighbor's photo at 5:12 PM captured Dot standing alone at the chili pot \u2014 the only person at the food table at that moment \u2014 holding the salt shaker."
+        "Three neighbors served themselves chili between 5:00 and 5:10 PM and all said it tasted perfect. The first complaint came at 5:15 PM.",
+        "The large salt shaker kept next to the chili was found nearly empty; an identical shaker at the opposite end of the table was untouched. The sabotage happened at the chili end.",
+        "A neighbor's photo taken at 5:12 PM shows the food table with one person standing alone at the chili pot, salt shaker in hand. The photo is angled from behind \u2014 the face isn't visible \u2014 but a small gold HOA board pin is clearly on the shirt. Those pins are issued only to current HOA board members."
       ],
       "exonerations": {
-        "rita-neighbor": "Barb's seven-layer bars were being photographed by two neighbors at the dessert table from 5:05 to 5:20 \u2014 she was in every photo, posing with her tray.",
-        "greg": "Greg was captured on a neighbor's doorbell camera carrying folding chairs at 5:12 PM at the far end of the yard, 40 feet from the chili.",
-        "yolanda": "Yolanda's car was parked three blocks away. Neighbors confirm she didn't return from parking until 5:20 PM \u2014 after the chili was already salted.",
-        "neil": "Neil was at the bounce house from 4:45 to 5:30 continuously; his wife and four other parents confirm they saw him there without interruption."
+        "rita-neighbor": "Barb's seven-layer bars were being photographed by two neighbors at the dessert table from 5:05 to 5:20 \u2014 she was in every photo, posing with her tray, 40 feet from the chili.",
+        "greg": "Greg was captured on a neighbor's doorbell camera carrying folding chairs at 5:12 PM at the far end of the yard. Greg runs the event as a volunteer but isn't on the HOA board \u2014 no pin.",
+        "yolanda": "Yolanda's car was parked three blocks away. Neighbors confirm she didn't return from parking until 5:20 PM \u2014 after the chili was already salted. She's also not on the HOA board.",
+        "neil": "Neil was at the bounce house from 4:45 to 5:30 continuously; his wife and four other parents confirm they saw him there without interruption. He's not on the HOA board either."
       }
     },
-    "reveal": "Clue 1 narrows the sabotage window to 5:10\u20135:15 (the chili was fine through 5:10; Dot 'discovered' it salty at 5:15). Clue 2 locates the tampering at the chili end of the table. Clue 3 is the smoking gun \u2014 a photo at 5:12 PM shows Dot standing alone at the chili pot holding the salt shaker. She salted the pot and then immediately 'found' the problem to cast herself as the concerned taster instead of the saboteur."
+    "reveal": "Clue 1 narrows the sabotage window to 5:10\u20135:15 (chili fine through 5:10, first complaint at 5:15). Clue 2 locates the tampering at the chili end of the table. Clue 3 shows one person alone at the chili pot at 5:12 holding the salt shaker \u2014 face not visible, but wearing a gold HOA board pin. Of the five suspects, only Dot is on the HOA board; she's the Treasurer. She dumped the salt at 5:12, then 'discovered' the ruined chili at 5:15 to cast herself as the concerned taster instead of the saboteur."
   },
   {
     "id": "2026-04-21",
@@ -635,17 +635,17 @@
     "clues": {
       "starter": [
         "A park bench camera captured someone walking out the side gate at 3:32 PM carrying a small French Bulldog in a blue puffer jacket \u2014 Biscuit's signature outfit.",
-        "The side gate is locked from the large dog section and only accessible from inside the small dog section. A small-dog collar leash was found dropped at the gate.",
-        "Noah was the only adult in the small dog section without a dog of his own. He told Olivia at 3:10 PM that he 'really loves French Bulldogs' and asked if Biscuit was friendly."
+        "The side gate is accessible only from inside the small dog section \u2014 it's double-gated off from the large dog section. A small-dog collar-style leash was found dropped at the gate after the theft.",
+        "At 3:30 PM the small dog section contained three adults: Olivia refilling water bowls at the far end, one adult with two shih tzus visible in frame on the main lawn the whole five minutes around 3:30, and one adult standing alone near the side gate without a visible dog."
       ],
       "exonerations": {
-        "paul": "Paul's three client dogs are all over 50 pounds and legally separated into the large dog section by the double-gate rule. He never crossed into the small dog section.",
-        "trish": "Trish was visible to the park bench camera on the entrance benches from 3:15 to 3:45, with her poodle Coco in frame the entire time.",
-        "evan": "Evan's fitness tracker GPS shows he was on the outer loop trail at 3:30 PM, outside the fenced dog park. He never entered.",
-        "maria": "Maria was sitting next to Trish on the entrance bench from 3:15 to 3:45, confirmed on the bench cam, with her Lab Bruno lying at her feet the entire time."
+        "paul": "Paul's three client dogs are all over 50 pounds and confined to the large dog section by the double-gate rule. Park cam shows all three leashed at his side continuously from 3 to 4 \u2014 he never crossed into the small dog section.",
+        "trish": "Trish was visible to the entrance bench camera from 3:15 to 3:45, with her poodle Coco in frame the entire time \u2014 on the opposite side of the park from the small dog section.",
+        "evan": "Evan's fitness tracker GPS shows he was on the outer loop trail at 3:30 PM, outside the fenced dog park entirely. He never entered either section.",
+        "maria": "Maria was sitting next to Trish on the entrance bench from 3:15 to 3:45, confirmed on the bench cam, with her Lab Bruno lying at her feet \u2014 not in the small dog section."
       }
     },
-    "reveal": "Clue 1 shows someone leaving with Biscuit in her distinctive jacket at 3:32. Clue 2 proves the culprit had to be inside the small dog section and dropped a leash at the exit gate \u2014 despite Noah claiming he had no leash. Clue 3 is the smoking gun: Noah was the only adult in the small dog section without a dog of his own, and he'd approached Olivia minutes earlier asking about Biscuit specifically. He came prepared with a leash, scouted his target, and slipped out the side gate."
+    "reveal": "No clue named Noah. Clue 1 shows someone leaving with Biscuit in her distinctive jacket at 3:32. Clue 2 narrows the culprit to someone inside the small dog section \u2014 and places a dropped small-dog leash at the gate. Clue 3 identifies three adults in the section: Olivia herself, one adult with two shih tzus (continuously on-camera), and one adult standing alone near the gate without a dog. The first two don't fit; the third does. Of the five suspects, only Noah was in the small dog section without a dog of his own \u2014 and he specifically claimed to have 'no leash,' which is the exact thing dropped at the gate."
   },
   {
     "id": "2026-04-22",
@@ -689,8 +689,8 @@
     "clues": {
       "starter": [
         "Casey's Bluetooth speaker has a range of about 30 feet. Only rooms 410, 411, 413, and 414 are within range of Room 412. Any other room is too far to connect.",
-        "The music played was from a Spotify playlist called 'Revenge Mix.' The playlist was created two days ago by an account named 'R1leyPlays' \u2014 Riley's gaming username, which Riley has used publicly on their social media for years.",
-        "Riley has filed three formal noise complaints against Casey in the past month."
+        "The 'Revenge Mix' playlist was created two days ago under a Spotify account paying through the university's subsidized student-music plan. Residential Life's records show only one Floor 4 resident enrolled in that subsidy \u2014 the resident of Room 410.",
+        "University Residence Life records show three formal noise complaints filed against Casey in the past month. All three were filed by the same resident \u2014 the occupant of Room 410."
       ],
       "exonerations": {
         "casey": "Casey's phone sleep tracker recorded continuous deep sleep from 1:15 to 3:02 AM, and their door camera shows them in bed asleep when the music started \u2014 they physically couldn't have triggered it.",
@@ -699,7 +699,7 @@
         "morgan": "Morgan's room (401) is on the opposite end of the floor, out of Bluetooth range. Their RA duty log also shows no activity between 11 PM and 3:10 AM."
       }
     },
-    "reveal": "Clue 1 limits the culprit to someone in Room 410, 411, 413, or 414. Clue 3 establishes motive \u2014 Riley has been feuding with Casey over noise for a month. Clue 2 is the smoking gun: the 'Revenge Mix' playlist was created under Riley's public gaming username. Riley connected to Casey's unsecured speaker from Room 410 next door, blasted the playlist, then played the outraged neighbor to frame Casey."
+    "reveal": "No clue named Riley by name. Clue 1 limited the culprit to rooms 410, 411, 413, or 414 by Bluetooth range. Clue 2 traced the playlist to the Room 410 resident via the university music subsidy. Clue 3 showed the Room 410 resident had filed three noise complaints against Casey in the past month \u2014 motive. Three independent facts triangulated on one door. Of the suspects, only Riley lives in 410. Riley connected to Casey's unsecured speaker from next door, blasted the playlist, then played the outraged neighbor to frame Casey."
   },
   {
     "id": "2026-04-23",
@@ -724,7 +724,7 @@
         "id": "dante",
         "name": "Dante",
         "role": "Venue Staff",
-        "alibi": "I was busing tables and restocking the bar. I walked past the gift table a few times but I had my hands full of dishes."
+        "alibi": "I was busing tables and restocking the bar in my dark blue venue uniform \u2014 hands full of dishes most of the night. I walked past the gift table a few times but didn't stop."
       },
       {
         "id": "megan",
@@ -736,23 +736,23 @@
         "id": "tyler",
         "name": "Tyler",
         "role": "Groom's College Friend",
-        "alibi": "I arrived late around 8:30 because my flight was delayed. I dropped my card on the table and went to find the groom."
+        "alibi": "I arrived late around 8:30 in my dark blue suit \u2014 my flight was delayed. Dropped my card on the table, went to find the groom."
       }
     ],
     "culprit_id": "tyler",
     "clues": {
       "starter": [
-        "The venue's entrance log (every guest scanned a QR invite on arrival) shows Tyler checked in at 7:15 PM \u2014 over an hour before he claims he arrived.",
-        "Tyler's flight landed at 2 PM local time, four hours before the ceremony. There was no delay \u2014 the groom confirmed Tyler texted from baggage claim at 2:30 PM saying he was heading to his hotel.",
-        "The $500 envelope from the groom's boss was distinctive: thick, with a gold foil company logo. A hallway camera caught Tyler pocketing a matching gold-foil envelope from the gift table at 7:24 PM, then walking toward the restrooms."
+        "The venue's QR-invite scanner logs every guest on arrival. Of the five people on the suspect list, one scanned in at 7:15 PM \u2014 despite claiming in conversation they hadn't arrived until after 8.",
+        "The $500 envelope from the groom's boss was distinctive: thick, with a gold-foil company logo on the back. A hallway security camera captured someone in a dark blue suit pocketing a gold-foil envelope from the gift table at 7:24 PM and walking toward the restrooms. The camera didn't catch the face.",
+        "Three men on the suspect list planned to wear dark blue suits that night: Uncle Rob, Dante (venue uniform), and Tyler. Bar-tab receipts, kitchen camera footage, and the hallway camera at 7:24 establish that only one of the three was unaccounted for at that moment."
       ],
       "exonerations": {
-        "uncle-rob": "Uncle Rob's bar tab shows continuous drink orders from 6:15 PM to 9:45 PM. The bartender remembers him fondly \u2014 he didn't leave the bar area until dancing.",
-        "claire": "Claire's coordinator assistant was with her during the 7 PM gift table check, and the gift table is on the hallway camera \u2014 she didn't touch any envelope.",
-        "dante": "Dante's manager confirmed he was on dish duty in the kitchen from 7:00 to 8:45 PM. The kitchen camera shows continuous presence \u2014 he never stepped into the hallway.",
-        "megan": "Megan is in every bridal party photo from 5 to 7, then seated at the head table \u2014 which faces the gift table \u2014 from 7 to 9:30 PM, visible to 120 guests."
+        "uncle-rob": "Uncle Rob's bar tab shows continuous drink orders from 6:15 PM to 9:45 PM. The bartender remembers him fondly \u2014 he was at the bar, in frame on the bar cam, throughout the 7:24 window.",
+        "claire": "Claire's coordinator assistant was with her during the 7 PM gift table check, and the gift table is on the hallway camera \u2014 she didn't touch any envelope. She wore a red dress.",
+        "dante": "Dante's manager confirmed he was on dish duty in the kitchen from 7:00 to 8:45 PM in his dark blue venue uniform. The kitchen camera shows continuous presence \u2014 he never stepped into the hallway at 7:24.",
+        "megan": "Megan is in every bridal party photo from 5 to 7 in a bridesmaid dress, then seated at the head table \u2014 which faces the gift table \u2014 from 7 to 9:30 PM, visible to 120 guests."
       }
     },
-    "reveal": "Clue 1 shows Tyler actually arrived at 7:15 PM \u2014 not 8:30. Clue 2 proves the 'delayed flight' was a lie: he landed at 2 and texted from baggage claim. Clue 3 is the smoking gun: the hallway camera caught him pocketing the gold-foil envelope from the gift table at 7:24 PM. He arrived early, waited for a quiet moment, grabbed the biggest-looking envelope, and later acted like he'd just walked in the door."
+    "reveal": "No clue named Tyler. Clue 1 caught one suspect lying about arrival time \u2014 checked in at 7:15 despite claiming post-8. Clue 2 placed the theft at 7:24, committed by someone in a dark blue suit. Clue 3 identified three dark-blue-suit wearers and accounted for two: Uncle Rob (on bar cam continuously) and Dante (in kitchen on dish duty). Only one dark-blue-suit wearer was both lying about arrival time and unaccounted for at 7:24 \u2014 Tyler. He came early, pocketed the biggest-looking envelope, and later acted as if he'd just walked in."
   }
 ]
