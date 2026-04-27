@@ -1132,5 +1132,383 @@
       }
     },
     "reveal": "No clue named Brandon \u2014 you had to triangulate. Clue 1 catches him in a timeline contradiction: he logged the north stairwell as his starting position (4 minutes away), but dismissed the alarm in 2 minutes \u2014 he was already near the coin drawer when it triggered, not where he claimed. Clue 2 shows the bypass tape installed on the drawer frame, allowing it to be re-opened silently after the alarm was dismissed. Clue 3 shows Brandon disappeared from the gallery camera during the 90-second reset at 2:18 \u2014 exactly when the drawer could be opened without retriggering. Dr. Hara was in her office, Lydia was in frame at her sketching spot, Prof. Atkins was in the basement, Dana was on her ladder. Brandon was the only person near the drawer, falsely placed, who used the alarm dismissal to create his cover window."
+  },
+  {
+    "id": "2026-05-01",
+    "date": "2026-05-01",
+    "title": "The Signed First Edition",
+    "case": "A signed first edition disappeared from the locked display cabinet at Thornwood Books. Owner Gil noticed it missing when a customer asked to see it at 3 PM. The cabinet had been opened once, for a supervised noon viewing. The book was confirmed present at opening.",
+    "setting": "bookstore",
+    "suspects": [
+      {
+        "id": "gil",
+        "name": "Gil",
+        "role": "Bookstore Owner",
+        "alibi": "I was at the register all morning. I opened the case once, around noon, when Mr. Carmichael asked to see the edition. I locked it right back up."
+      },
+      {
+        "id": "rosa",
+        "name": "Rosa",
+        "role": "Bookseller",
+        "alibi": "I helped customers on the floor all day. I don't have a key to the display case \u2014 Gil keeps the only one."
+      },
+      {
+        "id": "phoebe",
+        "name": "Phoebe",
+        "role": "Browsing Customer",
+        "alibi": "I was in the fiction section from about 11 to 1, just browsing. Bought a paperback on my way out."
+      },
+      {
+        "id": "mr-carmichael",
+        "name": "Mr. Carmichael",
+        "role": "Regular Customer, Retired Collector",
+        "alibi": "I come in most Tuesdays. I spent time in the back with the vintage paperbacks and asked Gil to show me the signed edition around noon. I didn't return after leaving around 1."
+      },
+      {
+        "id": "devin-b",
+        "name": "Devin",
+        "role": "Delivery Driver",
+        "alibi": "I dropped off a shipment of new stock at 11:30. Gil signed for it and I was back on my route."
+      }
+    ],
+    "culprit_id": "mr-carmichael",
+    "clues": {
+      "starter": [
+        "The display cabinet has a magnetic contact alarm connected to Gil's phone. The alarm log shows two openings: 12:04 PM \u2014 confirmed by Gil's noon viewing with Carmichael \u2014 and again at 1:47 PM. Gil left for a bank errand at 1:30 PM, confirmed by the bank's visitor log; he returned at 2:12 PM. Rosa does not have a key.",
+        "The register-area camera covers the counter, including the hook behind it where Gil keeps the cabinet key when not in use. A review of the footage shows the key hook is empty from 1:43 PM to 1:52 PM \u2014 a nine-minute gap that falls entirely during Gil's bank absence.",
+        "The store's entry camera covers the front door. It shows Mr. Carmichael entering the store at 1:41 PM \u2014 after his stated departure time of 'around 1' \u2014 and exiting at 1:54 PM without approaching the register."
+      ],
+      "exonerations": {
+        "gil": "The bank's visitor log confirms Gil arrived at 1:32 PM and departed at 2:10 PM. He was off-site during both the key's disappearance from the hook and the 1:47 PM cabinet opening.",
+        "rosa": "Rosa has no key to the cabinet \u2014 confirmed by Gil and by the key log, which shows only one key in existence. The register camera places her at the front of the store continuously during Gil's absence.",
+        "phoebe": "The entry camera shows Phoebe leaving at 1:14 PM carrying a bag consistent with her described paperback purchase. She did not return to the store.",
+        "devin-b": "Devin's delivery app GPS shows his van left the block at 11:41 AM and logged six subsequent stops across town. He was nowhere near Thornwood Books by 1:41 PM."
+      }
+    },
+    "reveal": "No clue named Carmichael \u2014 you had to chain them. Clue 3 catches him in a lie: he said he didn't return after 'around 1,' but the entry camera shows him walking in at 1:41 PM. Clue 2 shows the cabinet key went missing from the hook between 1:43 and 1:52 \u2014 two minutes after Carmichael entered and two minutes before he left. Clue 1 shows the cabinet itself was opened at 1:47, inside that key-absence window, during Gil's confirmed bank visit. During his supervised noon viewing, Carmichael had scoped the hook's location. He returned the moment Gil left, took the key, opened the case, replaced the key, and walked out \u2014 all inside nine minutes."
+  },
+  {
+    "id": "2026-05-02",
+    "date": "2026-05-02",
+    "title": "The Spa Locker",
+    "case": "A diamond necklace valued at $1,200 was taken from Patricia Vance's locker at Serenity Day Spa while she was in a 90-minute massage. She locked it in Locker 7 before her 1 PM appointment and found it missing when she returned at 2:35 PM.",
+    "setting": "spa",
+    "suspects": [
+      {
+        "id": "amber",
+        "name": "Amber",
+        "role": "Massage Therapist",
+        "alibi": "I was with Patricia in Treatment Room 3 from 1 to 2:30. I never left the room during the session."
+      },
+      {
+        "id": "stella",
+        "name": "Stella",
+        "role": "Front Desk Receptionist",
+        "alibi": "I was checking clients in and out at the desk all afternoon. I don't leave my station during busy hours."
+      },
+      {
+        "id": "kenji",
+        "name": "Kenji",
+        "role": "Spa Manager",
+        "alibi": "I was doing inventory in the back storeroom most of the afternoon. I came out to the desk area around 2:15 when things slowed down."
+      },
+      {
+        "id": "bree",
+        "name": "Bree",
+        "role": "Esthetician",
+        "alibi": "I had a facial client in Treatment Room 1 from 1:15 to 2:15. I was in there the whole time."
+      },
+      {
+        "id": "wes",
+        "name": "Wes",
+        "role": "Maintenance",
+        "alibi": "I was fixing a drain in the maintenance corridor behind the changing room from 1 to about 1:45. I was on the utility side \u2014 I never went through into the client area."
+      }
+    ],
+    "culprit_id": "wes",
+    "clues": {
+      "starter": [
+        "The changing room has a motion sensor in the client locker area \u2014 installed after a prior incident \u2014 that logs any activity. The sensor triggered at 1:22 PM. The front-desk entry log shows no client entered the changing room after Patricia at 12:58 PM; the next client entry was at 1:49 PM. The 1:22 movement did not come from the client entrance.",
+        "Each locker has a rear access panel on the maintenance-corridor side, used for cable routing. No key is required \u2014 panels use a quarter-turn latch accessible only from the maintenance side. Locker 7's rear panel was found unlatched when staff inspected after the theft.",
+        "The maintenance work log shows Wes was assigned to repair a slow drain at the floor junction behind lockers 6, 7, and 8 \u2014 directly adjacent to Locker 7's rear panel. His log entry times: start 1:02 PM, sign-out 1:43 PM."
+      ],
+      "exonerations": {
+        "amber": "Amber was in Treatment Room 3 with Patricia from 1:00 to 2:30 PM, confirmed by Patricia herself and the session log. The treatment rooms are on the opposite side of the building from the changing room.",
+        "stella": "The front-desk camera shows Stella at her station continuously from 12:45 PM to 3:00 PM. She has no access to the maintenance corridor.",
+        "kenji": "A vendor call at 1:55 PM interrupted Kenji's storeroom inventory \u2014 logged in the spa's phone system. He emerged at 2:15, well after the 1:22 PM motion-sensor trigger. The storeroom has no connection to the maintenance corridor.",
+        "bree": "Bree is logged entering the treatment hallway at 1:13 PM on the hallway camera and didn't emerge until 2:17 PM. Treatment Room 1 is not connected to the changing room or the maintenance corridor."
+      }
+    },
+    "reveal": "No clue named Wes \u2014 you had to triangulate. Clue 1 placed movement in the client locker area at 1:22 PM with no client present \u2014 the only way in without triggering the entry log was from the maintenance side. Clue 2 shows Locker 7's rear panel was left unlatched, and those panels require no key \u2014 only physical access to the utility corridor. Clue 3 places Wes working directly behind lockers 6, 7, and 8 from 1:02 to 1:43 PM \u2014 bracketing the 1:22 trigger entirely. Amber was with Patricia, Stella was at the desk, Kenji was in the storeroom, Bree was in her treatment room. Only Wes was in the maintenance corridor adjacent to Locker 7's unlatched rear panel during that window."
+  },
+  {
+    "id": "2026-05-03",
+    "date": "2026-05-03",
+    "title": "The Marina Job",
+    "case": "An $800 custom fishing rod was stolen from boater Ed Marsh's locked storage unit at Harborview Marina overnight. Ed found the padlock cut and the rod missing when he arrived at 7 AM. The rod was there when he left at 8 PM the previous evening.",
+    "setting": "marina",
+    "suspects": [
+      {
+        "id": "cliff",
+        "name": "Cliff",
+        "role": "Dock Master",
+        "alibi": "I closed the office at 9 PM and came in at 6 AM for my morning walkthrough. That's how I found the cut lock."
+      },
+      {
+        "id": "renata",
+        "name": "Renata",
+        "role": "Liveaboard Tenant, Slip 14",
+        "alibi": "I was on my boat all evening. The storage units are right by the dock \u2014 I'd have heard something."
+      },
+      {
+        "id": "pete-m",
+        "name": "Pete",
+        "role": "Marine Mechanic",
+        "alibi": "I was working on an engine until about 6 PM, then packed up and drove home. Long day."
+      },
+      {
+        "id": "danny",
+        "name": "Danny",
+        "role": "Transient Boater, Guest Slip",
+        "alibi": "I pulled in around 5 PM, cooked dinner on the boat, and turned in early. I didn't hear anything unusual."
+      },
+      {
+        "id": "val",
+        "name": "Val",
+        "role": "Fuel Dock Attendant",
+        "alibi": "I was on the fuel dock from 3 PM until closing at 9. I sold Danny fuel when he came in \u2014 chatted for a minute. I don't leave the dock during my shift."
+      }
+    ],
+    "culprit_id": "danny",
+    "clues": {
+      "starter": [
+        "The marina's key-card gate controls access to the dock area after hours. After Cliff closed the office at 9:04 PM, the gate was accessed at 11:22 PM. Only one type of card opens it after hours without triggering a staff alert: the temporary access card issued to transient boaters in guest slips. One transient was checked in that night.",
+        "The padlock on Ed's storage unit was cut with a bolt cutter. The following morning, Cliff spotted a bolt cutter stored in the open cockpit of the boat in the guest slip \u2014 visible through the companionway during his walkthrough.",
+        "Danny's boat is equipped with a required AIS transponder, which broadcasts vessel activity to a publicly logged maritime database. The AIS log shows Danny's engine started and idled at 11:18 PM \u2014 four minutes before the gate access \u2014 and ran for approximately 12 minutes. Danny said he 'turned in early.'"
+      ],
+      "exonerations": {
+        "cliff": "Cliff's office keycard shows his exit at 9:04 PM and re-entry at 5:58 AM. The gate log shows no activity under his card between those times.",
+        "renata": "Renata was aboard Slip 14 all evening \u2014 a neighboring liveaboard heard her outdoor speaker playing until around 10:30 PM. Her card shows no gate exits after 6:47 PM. Slip 14 is on the opposite side of the dock from the storage units.",
+        "pete-m": "Pete's truck left the marina parking lot at 6:14 PM per the lot camera. Accessing the dock after hours requires a marina card; his card shows no entries after 6:09 PM.",
+        "val": "Val's shift ends at 9 PM and her card confirms she exited at 9:02 PM. The fuel dock is a separate gated area \u2014 her card doesn't open the main dock gate at all."
+      }
+    },
+    "reveal": "No clue named Danny \u2014 you had to triangulate. Clue 1 established the after-hours gate was opened using a transient access card, and Danny was the only transient checked in that night. Clue 3 caught his alibi in a direct contradiction: he claimed to have turned in early, but his AIS transponder logged his engine running at 11:18 PM \u2014 four minutes before the gate opened. Clue 2 placed a bolt cutter in the guest slip cockpit the next morning, the tool used to cut Ed's padlock. Cliff was off-site, Renata was aboard her slip, Pete left at 6 PM, Val's card doesn't reach the dock gate. Only Danny was awake and active at 11:18 PM with a transient access card and a bolt cutter aboard."
+  },
+  {
+    "id": "2026-05-04",
+    "date": "2026-05-04",
+    "title": "The Stolen Scoop",
+    "case": "A USB drive containing reporter Priya Narayan's unpublished investigative story was taken from her desk at the Millbrook Courier between 2 and 4 PM on a Thursday while she was at a press briefing. She found it gone when she returned at 3:45 PM.",
+    "setting": "newsroom",
+    "suspects": [
+      {
+        "id": "howard",
+        "name": "Howard",
+        "role": "Editor-in-Chief",
+        "alibi": "I was in the editorial meeting from 2 to 3:30, then went straight to my office. I didn't go near the reporters' floor until Priya told me what happened."
+      },
+      {
+        "id": "glen-n",
+        "name": "Glen",
+        "role": "Staff Photographer",
+        "alibi": "I was in the digital editing suite from about 1:30 to 4. I had a backlog of photos to process."
+      },
+      {
+        "id": "lisa-n",
+        "name": "Lisa",
+        "role": "Reporter",
+        "alibi": "I was at my desk working on my own story. I did walk past Priya's desk around 3 to grab a coffee from the break room."
+      },
+      {
+        "id": "marcus-n",
+        "name": "Marcus",
+        "role": "Intern",
+        "alibi": "I was running copies and doing research all afternoon \u2014 copy room, archives, the bullpen. All over the office."
+      },
+      {
+        "id": "sheila",
+        "name": "Sheila",
+        "role": "Advertising Sales",
+        "alibi": "I had a client call from 2:30 to 3:30, then I was reviewing ad copy at my desk. I'm in the advertising wing \u2014 I rarely go to the reporters' floor."
+      }
+    ],
+    "culprit_id": "lisa-n",
+    "clues": {
+      "starter": [
+        "The reporters' bullpen has a badge reader on its only door. The access log shows three entries between 2 PM and 4 PM: Lisa's badge at 2:03 PM, Marcus's badge at 2:47 PM, and Howard's badge at 3:31 PM. Priya's desk and the USB drive are inside the bullpen.",
+        "The newsroom's print server auto-timestamps every job with the workstation ID. A document titled 'Narayan_Investigation_Draft.docx' \u2014 a file from Priya's drive \u2014 was printed at 2:18 PM from a workstation inside the bullpen. Priya was confirmed at a press briefing from 2:00 to 3:45 PM and did not initiate the job.",
+        "The copy machine logs usage by employee ID. Marcus's ID shows continuous jobs from 2:07 to 2:43 PM \u2014 the machine is one hallway outside the bullpen. Howard was in the editorial meeting until 3:29 PM, confirmed by four attendees who signed the meeting sheet."
+      ],
+      "exonerations": {
+        "howard": "Howard's badge shows him entering the editorial meeting room at 1:58 PM. Four attendees confirm he was present until 3:29 PM. His bullpen entry at 3:31 was well after the 2:18 PM print job.",
+        "glen-n": "The photo editing suite has its own badge log; Glen's card shows continuous presence from 1:27 PM to 4:02 PM without leaving. He never badged into the reporters' bullpen.",
+        "marcus-n": "The copy machine log places Marcus running jobs from 2:07 to 2:43 PM \u2014 squarely during the 2:18 print job. His bullpen badge entry at 2:47 came after the fact.",
+        "sheila": "Sheila's desk is in the advertising wing, which has its own badge perimeter. Her card shows no entries to the reporters' bullpen at any point Thursday."
+      }
+    },
+    "reveal": "No clue named Lisa \u2014 you had to triangulate. Clue 1 shows only three people entered the bullpen between 2 and 4 PM. Clue 2 places the act at 2:18 PM \u2014 Priya's investigation file printed from inside the bullpen while Priya was at the briefing. Clue 3 eliminates two of the three bullpen entrants from the 2:18 window: Marcus was at the copy machine from 2:07 to 2:43, and Howard was in the editorial meeting until 3:29. That leaves only Lisa, whose badge shows she entered at 2:03 \u2014 15 minutes before the print job fired. She admitted walking past Priya's desk around 3, but her own badge log shows she was in the bullpen long before any coffee run."
+  },
+  {
+    "id": "2026-05-05",
+    "date": "2026-05-05",
+    "title": "The Locker Room Lift",
+    "case": "A Rolex watch valued at $6,500 was stolen from member Warren Holt's locker at Pinehurst Country Club between 9 AM (when Warren left for the course) and 12:30 PM (when he returned to find it missing). The locker was unlocked but closed.",
+    "setting": "country club",
+    "suspects": [
+      {
+        "id": "tad",
+        "name": "Tad",
+        "role": "Golf Pro",
+        "alibi": "I was on the driving range giving a lesson from 9 to 10:30. Then I grabbed lunch in the clubhouse."
+      },
+      {
+        "id": "patty",
+        "name": "Patty",
+        "role": "Locker Room Attendant",
+        "alibi": "I was restocking towels and cleaning from 8 to 10 AM. Everything was fine when I left."
+      },
+      {
+        "id": "rodrigo-c",
+        "name": "Rodrigo",
+        "role": "Club Maintenance",
+        "alibi": "I fixed a leaky showerhead in the locker room around 11. I was in and out of that area for maybe 20 minutes."
+      },
+      {
+        "id": "harvey",
+        "name": "Harvey",
+        "role": "Member, Warren's Golf Partner",
+        "alibi": "I teed off with Warren, played 9 holes, then came back inside at 11 for a drink. Warren kept going."
+      },
+      {
+        "id": "neil-k",
+        "name": "Neil",
+        "role": "Member, Regular Golfer",
+        "alibi": "I finished my round around 10:30 and spent some time in the locker room before heading to the grill."
+      }
+    ],
+    "culprit_id": "rodrigo-c",
+    "clues": {
+      "starter": [
+        "The men's locker room uses keypad fobs for access. The log shows four entries between 9 AM and 12:30 PM: Patty's staff fob at 8:02 AM and exit at 10:04 AM; Neil's member fob at 10:33 AM and exit at 10:46 AM; a maintenance staff fob at 10:52 AM; and Harvey's member fob at 11:03 AM and exit at 11:22 AM.",
+        "A hallway camera outside the locker room entrance shows the 10:52 AM maintenance entrant carrying a toolbag into the locker room. The same individual exits at 10:58 AM \u2014 then re-enters at 11:04 AM without the toolbag, exiting again at 11:16 AM.",
+        "The club's maintenance dispatch log shows one locker room work order for the day: 'leaky showerhead, Stall 3,' submitted at 10:48 AM and assigned to the on-call technician. The job close-out was filed at 11:00 AM. The second entry at 11:04 AM has no corresponding work order."
+      ],
+      "exonerations": {
+        "tad": "Tad's golf lesson is in the club's scheduling system from 9:00 to 10:30 AM, confirmed by the student. The clubhouse dining camera places him at a table from 10:45 AM to approximately 1:00 PM.",
+        "patty": "Patty's keycard shows her exit from the locker room at 10:04 AM. The staff break room log confirms she was on break from 10:10 AM and didn't return to the locker room before her shift ended at 2 PM.",
+        "harvey": "Harvey was on the course with Warren from 9 AM \u2014 confirmed by the starter's tee-time log \u2014 and his member fob shows his first locker room entry at 11:03 AM, after both maintenance visits.",
+        "neil-k": "Neil's member fob shows he entered at 10:33 AM and exited at 10:46 AM \u2014 six minutes before the 10:52 AM maintenance fob entry. The grill room camera places him at the bar from 10:51 AM onward."
+      }
+    },
+    "reveal": "No clue named Rodrigo \u2014 you had to triangulate. Clue 1 shows a maintenance staff fob entering at 10:52 AM, timed exactly to Rodrigo's dispatch. Clue 3 shows the work order was officially closed at 11:00 AM \u2014 the assigned job was done. But Clue 2 shows the same person re-entered at 11:04 AM without his toolbag and didn't leave until 11:16 \u2014 a second visit with no open work order and no tools. Warren's locker is in the area serviced near Stall 3. Neil left by 10:46, Patty by 10:04, Harvey arrived at 11:03 \u2014 after both maintenance visits. Rodrigo's second, tool-free entry after his job was officially closed is when the watch was taken."
+  },
+  {
+    "id": "2026-05-06",
+    "date": "2026-05-06",
+    "title": "The Clinic Shortage",
+    "case": "A vial of ketamine \u2014 a controlled surgical anesthetic \u2014 went missing from the locked drug cabinet at Millbrook Animal Clinic. Director Dr. Park discovered the shortage during the mandatory 5 PM controlled-substance count. The cabinet had been accessed legitimately during two afternoon procedures.",
+    "setting": "veterinary clinic",
+    "suspects": [
+      {
+        "id": "dr-park",
+        "name": "Dr. Park",
+        "role": "Clinic Director",
+        "alibi": "I performed the morning surgeries and logged everything by the book. I was in consultation rooms all afternoon seeing non-surgical appointments."
+      },
+      {
+        "id": "dr-reyes",
+        "name": "Dr. Reyes",
+        "role": "Associate Veterinarian",
+        "alibi": "I did the afternoon procedures \u2014 a cat spay at 1 PM and a dog orthopedic at 3. Both went smoothly. I was in the recovery room monitoring the ortho patient after."
+      },
+      {
+        "id": "keisha",
+        "name": "Keisha",
+        "role": "Vet Tech, Morning Shift",
+        "alibi": "I pulled medications for Dr. Park's morning cases and logged everything correctly. My shift ended at 2."
+      },
+      {
+        "id": "nolan",
+        "name": "Nolan",
+        "role": "Vet Tech, Afternoon Shift",
+        "alibi": "I assisted Dr. Reyes with both afternoon procedures. I handle the drug draw-up and documentation for afternoon cases."
+      },
+      {
+        "id": "ingrid",
+        "name": "Ingrid",
+        "role": "Receptionist",
+        "alibi": "I'm at the front desk \u2014 I don't have a code to the drug cabinet. That's clinical staff only."
+      }
+    ],
+    "culprit_id": "nolan",
+    "clues": {
+      "starter": [
+        "The controlled-substance cabinet requires dual signatures \u2014 the veterinarian's and the vet tech's \u2014 for every withdrawal. The afternoon log shows two completed dual-entry records signed by Dr. Reyes and Nolan for the 1 PM and 3 PM procedures. A third ketamine entry appears at 4:44 PM, signed only by Nolan, with the procedure field blank.",
+        "The clinic's afternoon surgery schedule lists exactly two procedures: the 1 PM cat spay (closed at 1:48 PM) and the 3 PM orthopedic (closed at 4:20 PM). No third procedure was scheduled or performed. The 4:44 PM cabinet entry occurred 24 minutes after the last procedure closed.",
+        "The drug cabinet's keypad requires two codes entered simultaneously \u2014 the veterinarian's and the vet tech's. The 4:44 PM entry was made with only one code. The dual-code alert, which normally fires on single-code attempts, was suppressed at 4:41 PM from the clinic's admin terminal. Nolan's workstation is the assigned admin terminal. At 4:44 PM, Dr. Reyes was in the recovery room completing post-op monitoring notes \u2014 with timed entries at 4:40 and 4:50 PM."
+      ],
+      "exonerations": {
+        "dr-park": "Dr. Park's afternoon is logged in the appointment system: six patient check-ins under her name between 2 PM and 4:30 PM, each confirmed by the intake log. She was in consultation rooms continuously and never approached the drug cabinet after the morning count.",
+        "dr-reyes": "Dr. Reyes co-signed both afternoon procedure records. At 4:44 PM her post-op monitoring sheet shows timed entries at 4:40 and 4:50 \u2014 she was in the recovery room. Her code does not appear in the 4:44 cabinet log.",
+        "keisha": "Keisha's shift ended at 2:00 PM. The clinic's punch system confirms she clocked out at 2:03 PM and was off-site before the unauthorized 4:44 entry.",
+        "ingrid": "Ingrid has no cabinet keypad code \u2014 clinical staff only. The access log has no entry under her name at any point."
+      }
+    },
+    "reveal": "No clue named Nolan \u2014 you had to triangulate. Clue 2 established that no third procedure occurred Thursday afternoon, so there was no legitimate reason to open the cabinet at 4:44 PM. Clue 1 identifies an unauthorized single-signature withdrawal at 4:44 under Nolan's name alone, with no procedure to justify it. Clue 3 shows the dual-code safeguard was disabled at 4:41 PM from Nolan's own admin terminal \u2014 three minutes before the withdrawal \u2014 and that Dr. Reyes was in the recovery room at 4:44 with documented timed entries. Dr. Park was in consultations; Keisha had clocked out at 2; Ingrid has no code. Nolan disabled the safeguard from his own workstation, then used his code alone to take the vial."
+  },
+  {
+    "id": "2026-05-07",
+    "date": "2026-05-07",
+    "title": "The Backstage Grab",
+    "case": "A vintage guitar strap valued at $1,800 \u2014 a tour keepsake belonging to headliner band Hollow Root \u2014 disappeared from their backstage dressing room at Meridian Amphitheater between soundcheck (3 PM) and the opening act (7 PM). Tour manager Lena discovered it missing at 7:15 PM.",
+    "setting": "concert venue",
+    "suspects": [
+      {
+        "id": "lena-t",
+        "name": "Lena",
+        "role": "Tour Manager",
+        "alibi": "I was coordinating crew all afternoon. I'm the one who noticed it gone and reported it."
+      },
+      {
+        "id": "cy",
+        "name": "Cy",
+        "role": "Venue Production Manager",
+        "alibi": "I was in the production office and on the stage floor all afternoon overseeing setup. Busy day before a show."
+      },
+      {
+        "id": "dani",
+        "name": "Dani",
+        "role": "Opening Act, Singer",
+        "alibi": "I was backstage from about 5 PM warming up. I had no reason to go into Hollow Root's dressing room."
+      },
+      {
+        "id": "marcus-v",
+        "name": "Marcus",
+        "role": "Venue Security, Backstage Door",
+        "alibi": "I was posted at the backstage door from 4 PM. Anyone going backstage had to pass me."
+      },
+      {
+        "id": "priya-b",
+        "name": "Priya",
+        "role": "Music Journalist, Press Pass",
+        "alibi": "I had a 4:30 interview with the band. I was in the dressing room from about 4:28 to 4:55 with the whole band present."
+      }
+    ],
+    "culprit_id": "cy",
+    "clues": {
+      "starter": [
+        "The backstage dressing room is accessible from two points: the main backstage door (logged by Marcus) and a production corridor connecting directly from the production office \u2014 used by venue staff for equipment routing and not visible from the backstage door. The corridor has no badge reader.",
+        "A band member's Instagram story, timestamped 5:48 PM, shows the guitar strap hanging in the dressing room. A motion sensor in the production corridor \u2014 installed for equipment security \u2014 logged movement at 6:02 PM and again at 6:09 PM.",
+        "Cy's required production sign-off sheet shows his signature at the lighting rig (on the stage) at 5:55 PM and at the PA mixing board (main floor) at 6:15 PM. Between those two sign-offs, Cy has no logged position. The production corridor connects his production office base to the dressing room area and exits naturally near the mixing board."
+      ],
+      "exonerations": {
+        "lena-t": "A catering dispute required Lena's attention from 5:45 to 6:20 PM \u2014 documented in the venue's event management app with three timestamped messages and confirmed by the catering supervisor.",
+        "dani": "Marcus's backstage door log shows Dani entering at 5:03 PM. He confirms she went directly to the opening act's separate dressing room and didn't emerge until 6:45 PM, confirmed by her bassist and the hallway camera.",
+        "marcus-v": "Marcus was at the backstage door continuously from 4 PM, confirmed by radio check-ins with venue security every 15 minutes. He cannot be simultaneously at the door and in the production corridor.",
+        "priya-b": "Marcus's door log shows Priya's press pass entry at 4:28 PM and exit at 4:57 PM. She left 51 minutes before the strap was last photographed at 5:48 PM."
+      }
+    },
+    "reveal": "No clue named Cy \u2014 you had to triangulate. Clue 1 established the production corridor as a second, unmonitored route to the dressing room accessible only to venue staff, connecting directly from Cy's production office. Clue 2 placed movement in that corridor at 6:02 and 6:09 PM \u2014 after the strap was confirmed present at 5:48. Clue 3 shows Cy's only unlogged window runs from 5:55 (lighting rig) to 6:15 (PA board) \u2014 20 minutes that bracket both sensor hits exactly, and the corridor's exit puts him naturally at the mixing board for the 6:15 sign-off. Lena was resolving a catering dispute, Dani was in her dressing room, Marcus was at the door, Priya had left before the strap was last seen. Only Cy had the access, the route, and the window."
   }
 ]
