@@ -1888,5 +1888,383 @@
       }
     },
     "reveal": "Clue 1 shows Emerson was alone with the brooch during the May 13 morning assessment — the only access between Constance’s authenticated measurement on May 12 and Reginald’s case-closed preview that afternoon. Clue 3 catches the critical discrepancy: Emerson’s condition report records the principal stone at 4.2 mm, but Constance’s calibrated GIA log from the day before reads 4.7 mm, matching the intake photograph. Emerson measured the replica — either because someone else had already swapped it, or because Emerson made the swap and then documented what was there. Clue 2 eliminates the first possibility: a forum commission request for a reproduction of this exact brooch — signed with ‘conservation and period assessment services’ — was posted in late April, before Emerson’s visit was even scheduled. Constance’s digital log, Reginald’s case sensor, Lark’s limited access, and Petra’s exclusion from storage all eliminate the other four. Emerson commissioned the replica weeks in advance, made the swap during the condition assessment, and submitted measurements that matched the fake — inadvertently writing the confession into the official record."
+  },
+  {
+    "id": "2026-05-15",
+    "date": "2026-05-15",
+    "title": "The Members Preview",
+    "case": "A 16th-century silver reliquary disappeared from the Halverton Museum's medieval collection during a members-only preview evening. The piece was confirmed present at 6 PM during the curator's final walkthrough; by 9 PM it was gone.",
+    "setting": "art museum",
+    "suspects": [
+      {
+        "id": "orla",
+        "name": "Orla",
+        "role": "Museum Registrar",
+        "alibi": "I was in the registry office processing end-of-day intake paperwork. I didn't go near the medieval wing at all."
+      },
+      {
+        "id": "theo",
+        "name": "Theo",
+        "role": "Museum Docent",
+        "alibi": "I led tours of the medieval wing at 6:30 and 7:45. I was with guests the entire evening and filed my incident report before leaving."
+      },
+      {
+        "id": "petra",
+        "name": "Petra",
+        "role": "Registered Museum Member, Private Collector",
+        "alibi": "I attended the preview and admired the reliquary from about three feet away — it's behind glass. I left around 8 PM."
+      },
+      {
+        "id": "dara",
+        "name": "Dara",
+        "role": "Museum Security Officer",
+        "alibi": "I completed my full patrol of the medieval wing at 7:15. Everything was in order. I documented it in the patrol log."
+      },
+      {
+        "id": "wren",
+        "name": "Wren",
+        "role": "Catering Staff Supervisor",
+        "alibi": "My crew was set up in the atrium from 5 PM to close. I was managing the buffet and bar service the entire evening."
+      }
+    ],
+    "culprit_id": "theo",
+    "clues": {
+      "starter": [
+        "The museum's infrared motion system logs movement independently in each gallery. Medieval wing log: Theo (6:15, 6:33, 7:31, 7:47, 8:17 PM), Dara (7:15 PM). The reliquary's display case is equipped with a magnetic contact sensor — it registered an opening at 8:19 PM. No tour was scheduled after 8 PM.",
+        "The reliquary was replaced with a weighted bundle of museum-grade archival linen — the same material used exclusively in the collection's storage and transit supply room. Staff have access to this supply room; attending members do not. The case was re-locked after the swap.",
+        "Theo's end-of-evening incident report, filed at 8:45 PM, notes 'nothing unusual observed in the medieval wing.' A review of the infrared log shows his 8:17 PM entry — after the last scheduled tour — lasted eleven minutes, ending at 8:28 PM. The case sensor opened at 8:19 PM. Theo filed for personal bankruptcy three months ago."
+      ],
+      "exonerations": {
+        "orla": "The registry office is in the administrative wing with its own keypad access log. Orla's badge shows continuous presence from 5:45 PM to 9:30 PM with no gaps. She has no key to medieval gallery storage and no access to the transit supply room.",
+        "petra": "Member guests do not receive staff-level gallery access. Petra's member badge logs an exit at 8:03 PM — sixteen minutes before the case sensor opened. The infrared system shows no member-tier presence in the medieval wing after 8:05 PM.",
+        "dara": "Dara's 7:15 PM patrol predates the 8:19 PM case opening by over an hour. The patrol log — cross-referenced with the building's elevator system — places Dara in the east-wing stairwell at 8:19 PM, assisting a member who had lost their phone. A member confirmed the interaction.",
+        "wren": "Wren's catering crew operated entirely in the atrium and adjacent service corridor. The atrium camera shows Wren continuously from 7:30 PM onward managing service. Wren has no access to the medieval gallery or the transit supply room."
+      }
+    },
+    "reveal": "Clue 1 establishes an unscheduled return to the medieval wing at 8:17 PM — after all tours had ended — with the display case opening two minutes later at 8:19 PM. Clue 2 shows the reliquary was replaced with museum-grade archival linen, a material only staff can access, and that the case was re-locked afterward — indicating someone who knew the layout and supplies. Clue 3 closes the trap: Theo's own incident report claims nothing unusual, directly contradicting the infrared log that places him in the wing at 8:17 PM; his eleven-minute stay brackets the 8:19 case opening exactly; and his recent bankruptcy filing gives him financial motive. Petra's badge exit, Dara's stairwell log, Orla's registry records, and Wren's catering camera eliminate every other suspect. Theo used his legitimate tour access and knowledge of the supply room to stage a swap — then wrote a false report to ensure no one would look his way."
+  },
+  {
+    "id": "2026-05-16",
+    "date": "2026-05-16",
+    "title": "The Vintage Vault",
+    "case": "Six bottles of 1961 Pétrus Bordeaux — valued at approximately $60,000 — disappeared from the locked wine cellar at Ashworth Estate. The bottles were confirmed present during a private dinner on the evening of May 15; by noon on May 16 they were gone.",
+    "setting": "private estate",
+    "suspects": [
+      {
+        "id": "barnaby",
+        "name": "Barnaby",
+        "role": "Estate Manager",
+        "alibi": "I did my usual morning walkthrough at 9 AM. The cellar was locked when I checked — I didn't go in."
+      },
+      {
+        "id": "claudette",
+        "name": "Claudette",
+        "role": "Private Chef, Weekend Guest",
+        "alibi": "I was in the kitchen all morning prepping brunch. I don't even have a key to the wine cellar."
+      },
+      {
+        "id": "miles",
+        "name": "Miles",
+        "role": "Weekend Guest, Wine Collector",
+        "alibi": "I complimented the Pétrus at dinner, certainly. But I was in my guest suite from about midnight until noon — I had no reason to get up early."
+      },
+      {
+        "id": "isadora",
+        "name": "Isadora",
+        "role": "Estate Housekeeper",
+        "alibi": "I clean the main house, not the cellar. I don't have a key, and I was doing linens and bathrooms all morning."
+      },
+      {
+        "id": "rupert",
+        "name": "Rupert",
+        "role": "Estate Owner's Adult Son, Visiting",
+        "alibi": "I came down for breakfast around 10 and went for a walk along the garden path after. I was back by 11:30."
+      }
+    ],
+    "culprit_id": "rupert",
+    "clues": {
+      "starter": [
+        "The wine cellar uses a traditional mortise lock with two keys: one held by Barnaby (engraved 'EK-1') and one stored in the butler's pantry key cabinet. The key cabinet ledger shows one sign-out at 11:47 PM on May 15, returned at 12:14 AM on May 16, signed with an illegible initial. The cabinet's four-digit access code is known only to Barnaby and the Ashworth family.",
+        "A wine shipping specialist identified the six missing bottles the following morning as matching a consignment that arrived at a specialist auction house sixty miles away. The consignment was dropped off in person at 9:30 AM by an individual matching Rupert's description, driving a vehicle registered to the estate. The auction intake form lists the consigner as 'R. Ashworth.'",
+        "GPS history retrieved from the estate's second vehicle — a dark Range Rover kept in the utility outbuilding — shows a trip departing at 8:52 AM and returning at 11:18 AM, with a sixty-minute stop at the auction house address. Rupert's stated return time of 11:30 AM is consistent with walking in from the outbuilding, which sits at the end of the garden path."
+      ],
+      "exonerations": {
+        "barnaby": "Barnaby's key — engraved 'EK-1' — was on his keychain when examined by investigators. The cabinet's 'EK-2' copy is the one that was signed out. Barnaby also has no familial claim on the estate's wine and no known financial motive.",
+        "claudette": "Claudette has no key to the cellar and her name does not appear in the cabinet ledger. Kitchen records show a 7 AM grocery delivery she signed for; witnesses confirm her continuous presence in the kitchen from 7:30 AM onward.",
+        "miles": "Miles is a weekend guest without access to the key cabinet, which requires a family-known code. His guest room's smart thermostat log shows continuous occupancy from 11:45 PM to 10:15 AM — he was asleep through the overnight cellar access window.",
+        "isadora": "Isadora has no key to the cellar and does not know the cabinet code. She does not drive and has no vehicle, making a 9:30 AM auction drop-off sixty miles away impossible."
+      }
+    },
+    "reveal": "Clue 1 establishes that the cabinet's second key was removed at 11:47 PM and returned at 12:14 AM — a thirty-minute window in which six heavy bottles could be moved to a waiting vehicle — and that only Barnaby or an Ashworth family member could operate the cabinet. Clue 2 is the decisive link: the missing bottles appeared at auction that morning, consigned under 'R. Ashworth,' dropped off in an estate vehicle by someone matching Rupert's description. Clue 3 closes the alibi gap: the Range Rover's GPS confirms the 8:52 AM departure, a sixty-minute stop at the exact auction house address, and an 11:18 AM return — placing the vehicle at the auction house at 9:30 AM. Barnaby's engraved key rules him out; Miles's thermostat record, Claudette's kitchen witnesses, and Isadora's access and transportation constraints eliminate the rest. Rupert used the family cabinet code overnight to move the bottles, then personally consigned them at auction the next morning under his own name."
+  },
+  {
+    "id": "2026-05-17",
+    "date": "2026-05-17",
+    "title": "The Override",
+    "case": "A 3D-printed prototype of a classified drone navigation component disappeared from the secured cabinet in Lab 3 at Varro Defense Concepts. The prototype was signed in at 8 AM and was missing by the 5 PM end-of-day check.",
+    "setting": "engineering firm",
+    "suspects": [
+      {
+        "id": "dex",
+        "name": "Dex",
+        "role": "Senior Engineer, Project Lead",
+        "alibi": "I was in back-to-back meetings all day. I didn't touch the prototype."
+      },
+      {
+        "id": "yara",
+        "name": "Yara",
+        "role": "Junior Engineer, Dex's Team",
+        "alibi": "I ran morning tests, signed the prototype back into the cabinet at noon, and went to lunch. I didn't go back into the lab after that."
+      },
+      {
+        "id": "samir",
+        "name": "Samir",
+        "role": "IT Systems Administrator",
+        "alibi": "I was in the server room all day running a critical storage migration. You can check the system logs."
+      },
+      {
+        "id": "lorraine",
+        "name": "Lorraine",
+        "role": "Executive Assistant to the VP",
+        "alibi": "I was with the VP all day — meetings, calls, lunch. I don't have clearance for Lab 3."
+      },
+      {
+        "id": "conrad",
+        "name": "Conrad",
+        "role": "Facilities and Security Officer",
+        "alibi": "I patrol the building and monitor the access logs. I check the hallways, not the labs themselves."
+      }
+    ],
+    "culprit_id": "samir",
+    "clues": {
+      "starter": [
+        "The prototype cabinet requires a four-digit combination known only to Dex and Yara, plus an RFID card scan to open the door. The RFID log shows: Yara at 8:10 AM (check-out) and 12:02 PM (return), and a third entry at 2:47 PM where the reader logged 'ADMIN' — the system's fallback display when the IT master override card is used.",
+        "Varro's network security system flagged an unusual outbound transfer at 2:51 PM: a CAD file package matching the prototype's specification was sent to an external address via personal webmail, accessed from the server room's dedicated admin workstation. The sending IP resolves exclusively to that workstation.",
+        "Conrad's GPS-timestamped patrol log places him in the Lab 3 corridor at 2:40 PM and again at 3:15 PM — he did not enter the lab. Yara's badge shows no lab re-entry after 12:02 PM. Dex's conference room badge confirms continuous presence in meetings from 9:00 AM to 4:30 PM. The IT master override card is issued to exactly one employee at Varro Defense Concepts."
+      ],
+      "exonerations": {
+        "dex": "Conference room badge records confirm Dex was in meetings continuously from 9:00 AM to 4:30 PM without interruption. His engineer RFID card is distinct from the override card; the 2:47 PM entry was not logged as his card.",
+        "yara": "Yara's access badge shows lab entry at 8:08 AM and exit at 12:02 PM, with no re-entry. She does not hold an IT master override card and has no server room access.",
+        "lorraine": "Lorraine's access badge is restricted to executive floors and common areas — it would be rejected at the Lab 3 RFID reader. The VP's calendar confirms she was in or adjacent to his office from 8:30 AM through 5 PM.",
+        "conrad": "Conrad's body camera — which GPS-timestamps all patrol footage — recorded him in the hallway at 2:40 PM, not inside the lab. He carries a facilities pass, not an IT override card, and has no server room access."
+      }
+    },
+    "reveal": "Clue 1 identifies the 2:47 PM cabinet access as made with the IT master override card — the RFID system's 'ADMIN' fallback is triggered only by that card, which is issued to one person. Clue 2 places a file transfer of the prototype's CAD specifications at 2:51 PM — four minutes later — from the server room's admin workstation to an external address, meaning whoever used the override card in the lab was back in the server room within four minutes. Clue 3 closes every other door: Dex's conference badge is continuous, Yara never re-entered after noon, Lorraine's badge would be rejected at the lab reader, and Conrad's body camera places him only in the hallway. The IT master override card belongs to Samir alone. He used it to open the secured cabinet at 2:47 PM, took or photographed the prototype, returned to the server room, and transmitted the CAD file at 2:51 PM — concealing the act inside a day-long migration that gave him a plausible reason to be at the admin workstation all afternoon."
+  },
+  {
+    "id": "2026-05-18",
+    "date": "2026-05-18",
+    "title": "The Hermetic Case",
+    "case": "A 17th-century illuminated manuscript — on loan from a private collection and valued at $280,000 — disappeared from the Fenwick University Rare Books Room. The piece was present during a 9 AM research session and was found missing at 2 PM.",
+    "setting": "rare books library",
+    "suspects": [
+      {
+        "id": "agatha",
+        "name": "Agatha",
+        "role": "Rare Books Librarian",
+        "alibi": "I was at the reference desk all morning. I let the researchers in, verified their IDs, and monitored the room. I held the only key to the hermetic case."
+      },
+      {
+        "id": "brennan",
+        "name": "Brennan",
+        "role": "Graduate Student Researcher, Session Attendee",
+        "alibi": "I worked with the manuscript from 9 to 11:30, then left. I followed every protocol — white gloves, no photography, materials kept flat."
+      },
+      {
+        "id": "orin",
+        "name": "Orin",
+        "role": "Physical Plant Supervisor",
+        "alibi": "One of my crew fixed a pipe leak in the restroom adjacent to the rare books room between 10 and 11 AM. I walked by briefly to check on the work."
+      },
+      {
+        "id": "cassie",
+        "name": "Cassie",
+        "role": "University Development Officer",
+        "alibi": "I gave a donor tour of the library building that morning. We were in the special collections hallway around 10:30 — I pointed out the rare books room through the window."
+      },
+      {
+        "id": "hollis",
+        "name": "Hollis",
+        "role": "Independent Conservator, On-Site for Condition Assessment",
+        "alibi": "I was engaged to assess two other items in the rare books room from 1 to 2 PM. Standard condition work. I left when I'd finished the two pieces."
+      }
+    ],
+    "culprit_id": "hollis",
+    "clues": {
+      "starter": [
+        "The rare books room uses a sign-in ledger monitored at Agatha's desk. Morning log: Brennan (9:00–11:32 AM), Hollis (1:05–1:58 PM). A separate climate sensor logs temperature and humidity in the room; it recorded a four-minute humidity excursion at 1:47 PM, consistent with the hermetic document case being opened.",
+        "The hermetic case requires a key held only by Agatha. After Hollis's session, the case was found unlocked and empty. Hollis's conservation kit, examined by investigators, contained a custom foam-lined extraction tray sized to within two millimeters of the manuscript's dimensions — not a standard conservator's tool, and not required for the two items officially scheduled for assessment.",
+        "A rare books dealer in Geneva received an email inquiry at 3:14 PM that day from a Hollis Whitmore asking whether they handled 'early 17th-century devotional manuscripts of northern European origin' and whether a piece could be 'quietly assessed for private placement.' The dealer forwarded the inquiry to Interpol two days later after seeing a description of the stolen manuscript circulated online."
+      ],
+      "exonerations": {
+        "agatha": "Agatha is the sole authorized key-holder; the hermetic case lock shows no sign of forced entry, confirming a key was used. As the room's custodian, Agatha would have no reason to steal from her own collection and would bear direct professional liability for the loss.",
+        "brennan": "Brennan signed out at 11:32 AM — two and a half hours before Hollis's session and the 1:47 PM humidity excursion. The ledger records no re-entry, and the access door camera confirms Brennan did not return.",
+        "orin": "Orin was observed only in the hallway outside the restroom; he does not appear in the room's sign-in ledger. The access door requires librarian sign-in, and Orin's name was never added.",
+        "cassie": "The donor tour remained in the hallway and common areas. Cassie's visitor lanyard does not grant access to the controlled research environment; she is not in the room's ledger and could not have operated the hermetic case lock."
+      }
+    },
+    "reveal": "Clue 1 places the key event at 1:47 PM — a humidity excursion consistent with the hermetic case being opened during Hollis's session, the only access event that afternoon. Clue 2 shows Hollis arrived with a purpose-built extraction tray sized precisely to the manuscript — not needed for the two officially scheduled items, indicating premeditated preparation before the visit. Clue 3 closes the window: Hollis was emailing a Geneva dealer about a northern European devotional manuscript at 3:14 PM, barely ninety minutes after leaving the room, using language about 'quiet placement' that the dealer later connected to the theft. Brennan's exit two and a half hours prior, Orin's hallway-only presence, Cassie's lanyard restriction, and Agatha's position as the key-holder all eliminate the other four. Hollis came equipped with a custom tray, opened the hermetic case at 1:47 PM, and was already reaching out to international buyers before the theft was even discovered."
+  },
+  {
+    "id": "2026-05-19",
+    "date": "2026-05-19",
+    "title": "The Cold Room",
+    "case": "A vacuum-sealed container of Beluga caviar — valued at $4,200 — disappeared from the walk-in cold room at the Aldgate restaurant. The caviar was inventoried at 3 PM and found missing during the 9 PM dinner service check.",
+    "setting": "restaurant",
+    "suspects": [
+      {
+        "id": "gwen",
+        "name": "Gwen",
+        "role": "Head Chef",
+        "alibi": "I was running dinner prep from 3 PM onward. I went into the cold room briefly before that but not after."
+      },
+      {
+        "id": "fabio",
+        "name": "Fabio",
+        "role": "Sous Chef",
+        "alibi": "I was prepping the pasta section all afternoon. I went into the cold room twice for stock — both times with the garde-manger cook right there."
+      },
+      {
+        "id": "lisette",
+        "name": "Lisette",
+        "role": "Front-of-House Manager",
+        "alibi": "I don't go into the kitchen unless there's a guest complaint. I was at the host stand all evening managing reservations."
+      },
+      {
+        "id": "theo",
+        "name": "Theo",
+        "role": "Produce Delivery Driver",
+        "alibi": "I made my last delivery at 4:30. I bring everything to the loading dock and leave it there — I'm in and out in five minutes."
+      },
+      {
+        "id": "marlow",
+        "name": "Marlow",
+        "role": "Pastry Chef",
+        "alibi": "My station is separate from the savory kitchen. I use the cold room for dairy items — I was in twice between 4 and 6 PM, both short visits."
+      }
+    ],
+    "culprit_id": "marlow",
+    "clues": {
+      "starter": [
+        "The cold room has a keypad entry system that logs each badge separately. Full log for the 3 PM to 9 PM window: Gwen (3:05 in, 3:12 out), Fabio (3:42 in/3:55 out, 4:10 in/4:18 out), Theo (4:33 in, 4:38 out), Marlow (4:13 in/4:21 out, 5:47 in/5:52 out, 6:31 in/6:39 out). The caviar container — a sealed case with its own padlock — was confirmed present during Fabio's 3:55 entry and missing at the 9 PM check.",
+        "The loading dock camera covers the rear entrance clearly. Theo's delivery van is visible from 4:30 to 4:35 PM; he is seen unloading produce crates at the dock threshold and never entering past the loading dock door. Marlow reported two cold room visits between 4 and 6 PM; the keypad log records three.",
+        "Text messages retrieved from Marlow's phone show a conversation two days prior with a contact saved as 'PD' arranging to 'bring the usual Saturday item, extra this time.' A search of Marlow's locker found a personal insulated grocery bag — the type rated for perishable transport — folded inside a pastry apron. Beluga caviar remains stable for several hours in an insulated carrier."
+      ],
+      "exonerations": {
+        "gwen": "Gwen's log shows entry at 3:05 PM and exit at 3:12 PM — before Fabio's 3:55 confirmation that the caviar was still present. Kitchen cameras show Gwen at the pass station continuously from 3:15 PM onward with no cold room return.",
+        "fabio": "Fabio's 4:10 PM entry was witnessed by the garde-manger cook, who was with him the entire visit. His last cold room entry was at 4:18 PM — over two hours before Marlow's undisclosed 6:31 PM visit.",
+        "lisette": "Lisette's keycard is programmed for front-of-house areas only; the cold room reader would reject it. Kitchen staff confirmed she did not enter the kitchen during the evening.",
+        "theo": "The loading dock camera confirms Theo remained at the dock threshold handling produce crates and never entered the interior kitchen. His badge grants access only to the receiving area, not the cold room."
+      }
+    },
+    "reveal": "Clue 1 narrows the theft window to after Fabio's 3:55 PM confirmation, leaving Marlow's three logged entries as the only cold room access in the relevant period. Clue 2 catches the discrepancy directly: Marlow reported two visits but the keypad recorded three — the undisclosed 6:31 PM entry lasted eight minutes, the longest of any visit that afternoon. The dock camera eliminates Theo entirely. Clue 3 completes the picture: a pre-arranged agreement to 'bring the usual Saturday item, extra this time,' plus a personal insulated bag found in Marlow's locker — the exact tool needed to transport refrigerated goods off the premises. Gwen's 3:12 PM exit precedes the crime window, Fabio's last visit was over two hours earlier and witnessed, Lisette's keycard is restricted, and Theo never entered the kitchen. The unreported third visit — eight minutes long, on the evening of a pre-arranged handoff — is when Marlow removed the caviar."
+  },
+  {
+    "id": "2026-05-20",
+    "date": "2026-05-20",
+    "title": "The House Party",
+    "case": "A matching pair of engraved silver dueling pistols from 1812 — appraised at $35,000 — disappeared from the locked study at Dunvale Manor during a weekend house party. The pistols were present during an informal display at 11 AM; by 6 PM they were gone.",
+    "setting": "manor house",
+    "suspects": [
+      {
+        "id": "helena",
+        "name": "Helena",
+        "role": "Hostess and Manor Owner",
+        "alibi": "They're my pistols and my study. I have no reason to steal my own property — and I'd simply move them if I wanted them elsewhere."
+      },
+      {
+        "id": "edmund",
+        "name": "Edmund",
+        "role": "Weekend Guest, Financial Advisor",
+        "alibi": "I admired the pistols in the morning but left with everyone else. I was playing croquet on the lawn all afternoon."
+      },
+      {
+        "id": "rosalind",
+        "name": "Rosalind",
+        "role": "Weekend Guest, Edmund's Wife",
+        "alibi": "I was in the drawing room reading from noon until tea. I never went back to the study."
+      },
+      {
+        "id": "padraig",
+        "name": "Padraig",
+        "role": "Manor Butler",
+        "alibi": "I served lunch, cleared the table, and managed the afternoon tea service. I don't carry a key to the study — that's the family's domain."
+      },
+      {
+        "id": "fern",
+        "name": "Fern",
+        "role": "Antiques Photographer, Hired for Documentation",
+        "alibi": "I photographed the pistols and other pieces as part of a documentation commission. I finished by 11 AM and left the manor by noon."
+      }
+    ],
+    "culprit_id": "fern",
+    "clues": {
+      "starter": [
+        "The study has a mortise lock with two keys: one held by Helena and one kept in the butler's pantry key cabinet, which requires a four-digit code known only to Helena and her immediate family. The estate key logbook shows the cabinet key was signed out at 11:45 AM and returned at 12:10 PM. The sign-out line bears an illegible initial — not Padraig's signature.",
+        "Fern's photography commission was arranged through a third-party agency. The agency's client record shows the commission was requested by an individual who specified 'complete close-up documentation of all engraving, hallmarks, and proof marks' — an unusually technical requirement for a general estate documentation job, and precisely the information needed to authenticate or privately broker antique firearms.",
+        "The estate parking log shows Fern's hired car departing at 12:14 PM. A customs declaration filed at Dover Ferry Terminal the following morning lists 'antique decorative items' declared by a consignee whose contact address matches the photography agency's client record. Fern's contact sheet, left with Helena after the shoot, documents the pistols only through 10:52 AM — four minutes before the scheduled final shot, suggesting the session ended abruptly."
+      ],
+      "exonerations": {
+        "helena": "Helena holds the primary study key at all times and controls the cabinet code. She had no reason to use the secondary key, and the pistols are fully insured in her name. The insurance company confirmed no prior claim irregularities.",
+        "edmund": "Edmund does not know the cabinet code and did not appear in the key logbook. The manor's croquet lawn is visible from the drawing room windows; Rosalind's account places him on the lawn throughout the afternoon, corroborated by the groundskeeper.",
+        "rosalind": "Rosalind likewise does not know the cabinet code. The drawing room camera shows her in the reading armchair continuously from 12:10 PM to 4:45 PM.",
+        "padraig": "Padraig manages the key cabinet but his name does not appear on the sign-out line — meaning someone accessed the cabinet while he was occupied with lunch service. He has worked at the manor for nine years without incident and has no known motive."
+      }
+    },
+    "reveal": "Clue 1 shows the secondary study key was signed out at 11:45 AM by someone other than Padraig — while Fern was still ostensibly wrapping up work — and returned at 12:10 PM, four minutes before Fern's car left the estate. Clue 2 reveals the commission itself as suspicious: requesting hallmark and proof-mark close-ups goes beyond documentation into exactly the data needed to authenticate or broker firearms privately, suggesting the job was designed to give Fern legitimate access and a full photographic record of the pieces. Clue 3 connects three data points: Fern's 12:14 PM departure, a next-morning customs declaration listing antique decorative items from the agency's client address, and a contact sheet that cuts off four minutes early — consistent with Fern stopping photography to remove the pistols. Edmund's lawn alibi, Rosalind's drawing room camera, Padraig's management role, and Helena's ownership all eliminate the others. Fern used the lunch-service distraction to access the cabinet at 11:45, entered the study, and had the pistols in the car by 12:14 PM."
+  },
+  {
+    "id": "2026-05-21",
+    "date": "2026-05-21",
+    "title": "The Boardroom Breach",
+    "case": "Confidential merger documents for the Aldric-Soto acquisition were photographed and leaked from the locked conference room at Brennan & Foley LLP. The documents were printed at 9 AM; an internal review at 3 PM found they had been disturbed, and the data surfaced at a hedge fund the following morning.",
+    "setting": "law firm",
+    "suspects": [
+      {
+        "id": "victoria",
+        "name": "Victoria",
+        "role": "Senior Partner, Lead on the Aldric-Soto File",
+        "alibi": "I was in client meetings all morning and didn't return to the conference room until nearly noon. I noticed the documents had been moved when I came back."
+      },
+      {
+        "id": "marcus",
+        "name": "Marcus",
+        "role": "Junior Associate",
+        "alibi": "I printed the documents at 9 AM under Victoria's supervision and filed them in the conference room. I went straight to my desk after and didn't go back in."
+      },
+      {
+        "id": "sloane",
+        "name": "Sloane",
+        "role": "Paralegal, Aldric-Soto File",
+        "alibi": "I've been prepping exhibits for days. I went in briefly to cross-check a tab sequence, then left. I have no reason to sabotage my own deal."
+      },
+      {
+        "id": "piers",
+        "name": "Piers",
+        "role": "IT Support Technician, External Contractor",
+        "alibi": "I was called in to fix the conference room's presentation screen. I was there about twenty minutes, around 11 AM."
+      },
+      {
+        "id": "rhea",
+        "name": "Rhea",
+        "role": "Opposing Counsel's Associate, Discovery Exchange Visit",
+        "alibi": "I dropped off discovery boxes in the lobby at 10 AM. A receptionist escorted me the entire time — I never went past the lobby."
+      }
+    ],
+    "culprit_id": "piers",
+    "clues": {
+      "starter": [
+        "The conference room requires a keycard programmed for authorized personnel only. Access log: Victoria (8:55 AM), Marcus (9:05 AM in, 9:22 AM out), Sloane (10:12 AM in, 10:40 AM out), Piers (11:05 AM in, 11:27 AM out), Victoria (11:50 AM — she noted the documents had been moved from their exact stacked position with colored exhibit tabs).",
+        "A secure IoT panel embedded in the conference room's printer detected a rapid-sequence image-capture event at 11:19 AM — a camera-type radio signature consistent with burst-mode photography, not a phone call. The event lasted 41 seconds and was logged between Piers's 11:05 entry and 11:27 exit.",
+        "Piers was placed through an external IT staffing firm. Three days before the engagement, a burner phone registered to the firm's commercial address received a call from a number linked to a hedge fund currently under SEC investigation for insider trading. Piers's work ticket — flagged as 'urgent' — was generated by an internal system account that does not correspond to any attorney at Brennan & Foley."
+      ],
+      "exonerations": {
+        "victoria": "Victoria's access was at 8:55 AM and 11:50 AM. She was in a client meeting from 10 AM to 11:45 AM, confirmed by the client and the reception visitor log. The documents were already disturbed when she returned at 11:50.",
+        "marcus": "Marcus's last access was at 9:22 AM — 117 minutes before the 11:19 AM capture event. The documents were intact when Sloane entered at 10:12, confirming nothing had been taken by 9:22.",
+        "sloane": "Sloane's exit at 10:40 AM precedes Piers's 11:05 entry by twenty-five minutes and the 11:19 AM capture event by thirty-nine minutes. Sloane's badge shows no re-entry to the conference room after 10:40.",
+        "rhea": "Rhea was escorted by a firm receptionist at all times during her 10 AM lobby visit and was never granted keycard access to any conference room. The visitor log confirms she exited the lobby by 10:20 AM."
+      }
+    },
+    "reveal": "Clue 1 places Piers alone in the conference room from 11:05 to 11:27 AM — after Sloane's departure and before Victoria's 11:50 return — as the only unaccounted visitor during the disturbance window. Clue 2 catches the photography at 11:19 AM: a 41-second burst-mode camera event logged by the room's IoT panel, occurring squarely in the middle of Piers's visit. Clue 3 supplies the motive chain: a hedge fund under SEC investigation called a burner phone at Piers's staffing firm three days before the engagement, and the work ticket was generated by a ghost account — not any attorney — suggesting Piers was deliberately placed. Victoria's client meeting, Marcus's 9:22 AM exit, Sloane's 10:40 departure, and Rhea's escorted lobby visit eliminate every other suspect. Piers was inserted into the firm on a manufactured IT ticket, photographed the merger documents in a 41-second burst at 11:19 AM, and walked out with the entire acquisition strategy while his access log made him look like a routine maintenance call."
   }
 ]
